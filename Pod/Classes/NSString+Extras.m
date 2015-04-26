@@ -26,7 +26,7 @@ NSString *const EMAIL_REGEX = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
 
 + (BOOL)availableStringPointer:(NSString*)theString
 {
-	if(theString == nil || theString == NULL)
+	if(theString == nil)
 		return NO;
 	return YES;
 }
@@ -93,8 +93,7 @@ NSString *const EMAIL_REGEX = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
 
 + (NSPredicate *)predicateWithRegex:(NSString *)regex
 {
-	NSPredicate *predicate =
-	[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
   return predicate;
 }
 

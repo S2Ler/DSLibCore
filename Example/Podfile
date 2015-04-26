@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-
+# use_frameworks!
 
 target 'DSLibCore', :exclusive => true do
   pod "DSLibCore", :path => "../"
@@ -7,3 +7,7 @@ target 'DSLibCore', :exclusive => true do
   pod 'Specta'
   pod 'Expecta'
 end
+
+#target 'DSLibCorePlayground', :exclusive => true do
+#  pod "DSLibCore", :path => "../"
+#end

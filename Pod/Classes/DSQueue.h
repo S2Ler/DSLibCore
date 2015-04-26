@@ -10,44 +10,39 @@
 NSCoding,
 NSCopying,
 NSFastEnumeration
-> {  
-  /** Maximum number of objects in queue */
-  NSUInteger capacity_;
-  
-  /** Indicates whether capacity == count */
-  BOOL isFull_;
-}
+> 
 
 /** \param theCapacity maximum number of items in queue */
-- (id)initWithCapacity:(NSUInteger)theCapacity;
-- (id)init;
-+ (DSQueue *)queue;
+- (id __nonnull)initWithCapacity:(NSUInteger)theCapacity NS_DESIGNATED_INITIALIZER;
+- (id __nonnull)init NS_DESIGNATED_INITIALIZER;
+- (id __nonnull)initWithCoder:(NSCoder *__nonnull)aDecoder NS_DESIGNATED_INITIALIZER;
++ (DSQueue *__nonnull)queue;
 
 /** \return Poped object from the queue. The one which pushed last. */
-- (id)pop;
+- (id __nullable)pop;
 
 /** Adds theObject to the end of queue. 
  @param theObject nil values ignored
  */
-- (void)push:(id)theObject;
+- (void)push:(id __nullable)theObject;
 /** Adds theObject to the beginning of the queue */
-- (void)pushBack:(id)theObject;
+- (void)pushBack:(id __nullable)theObject;
 
-- (void)pushObjectsFromArray:(NSArray *)array;
+- (void)pushObjectsFromArray:(NSArray *__nullable)array;
 
 /** The top object in the queue */
-- (id)top;
+- (id __nullable)top;
 
 /** The first object in queue */
-- (id)first;
+- (id __nullable)first;
 
 /** Remove all objects from the queue */
 - (void)removeAll;
 
 /** Remove specific objects from queue */
-- (void)removeObjectsInArray:(NSArray *)theObjects;
+- (void)removeObjectsInArray:(NSArray *__nullable)theObjects;
 
-- (BOOL)containsObject:(id)anObject;
+- (BOOL)containsObject:(id __nullable)anObject;
 
 /** \return current number of objects in the queue */
 - (NSUInteger)count;
@@ -60,16 +55,16 @@ NSFastEnumeration
 - (BOOL)isFull;
 
 /** \return enumerator for all objects in queue */
-- (NSEnumerator *)objectEnumerator;
+- (NSEnumerator *__nonnull)objectEnumerator;
 
 /** \return reversed enumerator for all objects in queue */
-- (NSEnumerator *)reverseObjectEnumerator;
+- (NSEnumerator *__nonnull)reverseObjectEnumerator;
 
-- (id)firstObjectWhichEqualsTo:(id)object;
+- (id __nullable)firstObjectWhichEqualsTo:(id __nonnull)object;
 
-- (void)filterWithPredicate:(NSPredicate *)predicate;
+- (void)filterWithPredicate:(NSPredicate *__nonnull)predicate;
 
-- (NSArray *)array;
+- (NSArray *__nonnull)array;
 @end
 
 /** For internal and subclass use */

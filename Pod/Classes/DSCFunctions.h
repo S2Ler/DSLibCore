@@ -12,13 +12,13 @@ BOOL isIPadIdiom(void);
 
 
 #pragma mark - paths
-NSString *DSApplicationDocumentDirectoryPath(void);
-NSURL *DSApplicationDocumentDirectoryURL(void);
+NSString *__nullable DSApplicationDocumentDirectoryPath(void);
+NSURL *__nullable DSApplicationDocumentDirectoryURL(void);
 
-NSUInteger DSNumberOfParamsInSelector(SEL theSelector);
+NSUInteger DSNumberOfParamsInSelector(SEL __nonnull theSelector);
 
-DSFileSize getFreeDiskSpace(NSError **errorRef);
-struct task_basic_info get_task_info(char **errorStringRef);
+DSFileSize getFreeDiskSpace(NSError *__nullable * __nonnull errorRef);
+struct task_basic_info get_task_info(char *__nullable *__nonnull errorStringRef);
 
 float randomFloatInRange(float smallNumber, float bigNumber);
 

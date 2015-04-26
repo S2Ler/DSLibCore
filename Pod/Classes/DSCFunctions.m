@@ -30,19 +30,24 @@ NSURL *DSApplicationDocumentDirectoryURL(void)
 {
 
   NSString *path = DSApplicationDocumentDirectoryPath();
-
-  assert(path);
-
-  return [NSURL fileURLWithPath:path];
+  if (path) {
+    return [NSURL fileURLWithPath:path];
+  }
+  else {
+    return nil;
+  }
 }
 
 NSUInteger DSNumberOfParamsInSelector(SEL theSelector)
 {
   NSString *selector = NSStringFromSelector(theSelector);
   NSArray *selectorComponents = [selector componentsSeparatedByString:@":"];
-  assert([selectorComponents count] > 0);
-
-  return [selectorComponents count] - 1;
+  if ([selectorComponents count] == 0) {
+    return 0;
+  }
+  else {
+    return [selectorComponents count] - 1;
+  }
 }
 
 DSFileSize getFreeDiskSpace(NSError **errorRef)

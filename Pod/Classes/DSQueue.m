@@ -2,26 +2,25 @@
 #import "DSQueue.h"
 
 #pragma mark - props
-@interface DSQueue() 
+@interface DSQueue()
+{
+  /** Maximum number of objects in queue */
+  NSUInteger capacity_;
+  
+  /** Indicates whether capacity == count */
+  BOOL isFull_;
+}
+
 @property (nonatomic, copy) NSMutableArray *queue;
 @end
 
-#pragma mark - Private
-@interface DSQueue(Private)
-/** Update the state of the isFull_ variable */
-- (void)updatedIsFullVariable;
-@end
 
 @implementation DSQueue
 #pragma mark - synth
 @synthesize isFull = isFull_;
 @synthesize queue = queue_;
 
-- (void) dealloc
-{
-}
-
-#pragma mark ----------------inits----------------
+#pragma mark - inits
 - (id)initWithCapacity:(NSUInteger)theCapacity {
 	self = [super init];
 	if (self != nil) {
@@ -88,6 +87,10 @@
 
 - (void)pushBack:(id)theObject
 {
+  if (!theObject) {
+    return;
+  }
+  
   if ([queue_ count] == capacity_) {
     [queue_ removeObjectAtIndex:0];
     [self updatedIsFullVariable];
@@ -149,10 +152,17 @@
 
 - (id)firstObjectWhichEqualsTo:(id)object
 {
-  return [[self queue] objectAtIndex:[[self queue] indexOfObject:object]];
+  NSUInteger idx = [[self queue] indexOfObject:object];
+  if (idx != NSNotFound) {
+    return [[self queue] objectAtIndex:idx];
+  }
+  else {
+    return nil;
+  }
 }
 
 
+/** Update the state of the isFull_ variable */
 - (void)updatedIsFullVariable {
   [self setIsFull:([self count] >= [self capacity])];
 }

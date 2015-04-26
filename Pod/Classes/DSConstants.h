@@ -19,7 +19,7 @@ extern DSFileSize DSFileSizeUndefined;
 typedef int64_t DSRecID;
 
 //block types
-typedef void (^ds_action_block_t)(id sender);
-typedef void (^ds_cell_action_block_t)(UITableViewCell *cell, id sender);
-typedef void (^ds_results_multiple_errors_completion)(BOOL success, NSArray *errorMessages, id result);
-typedef void (^ds_object_handler)(id object);
+typedef void (^ds_action_block_t)(id __nonnull sender);
+typedef void (^ds_cell_action_block_t)(UITableViewCell *__nonnull cell, id __nullable sender);
+typedef void (^ds_results_multiple_errors_completion)(BOOL success, NSArray *__nullable errorMessages, id __nullable result);
+typedef void (^ds_object_handler)(id __nonnull object);
