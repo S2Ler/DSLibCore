@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.version          = "1.0.0"
   s.summary          = "A set of usefull classes"
   s.description      = <<-DESC
-To be written
+A set of usefull classes. A description to be written.
                        DESC
   s.homepage         = "https://github.com/diejmon/DSLibCore"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
