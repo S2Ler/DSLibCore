@@ -8,7 +8,6 @@
 
 #pragma mark - include
 #import "DSCodingTransformer.h"
-#import "DSMessage.h"
 
 @implementation DSCodingTransformer
 
