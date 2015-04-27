@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DSLibCore"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "A set of usefull classes"
   s.description      = <<-DESC
 A set of usefull classes. A description to be written.
