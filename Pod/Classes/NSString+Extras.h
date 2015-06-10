@@ -3,6 +3,8 @@
 
 #import "DSConstants.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 #define isPhone568 ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568)
 /** Don't append extension */
 #define iPhone568ImagePNGNamed(image) (isPhone568 ? [NSString stringWithFormat:@"%@-568h", image] : image)
@@ -11,52 +13,52 @@
 #define iPhone568Image(image) ([UIImage imageNamed:iPhone568ImageNamed(image)])
 
 
-extern NSString *__nonnull const EMAIL_REGEX;
+extern NSString * const EMAIL_REGEX;
 
 @interface NSString(Extras)
 
 - (BOOL) isEmpty;
 - (BOOL) hasValue;
 
-+ (BOOL)validateString:(NSString *__nonnull)theString
-								 regex:(NSString *__nonnull)theRegex;
++ (BOOL)validateString:(NSString *)theString
+								 regex:(NSString *)theRegex;
 
 + (BOOL)availableStringPointer:(NSString *__nullable)theString;
 // return a new autoreleased UUID string
-+ (NSString *__nonnull)generateUuidString;
++ (NSString *)generateUuidString;
 
-- (NSString *__nonnull)stringByLeavingOnlyNumbers;
+- (nullable NSString *)stringByLeavingOnlyNumbers;
 
-- (BOOL)containsString:(NSString *__nullable)theString;
+- (BOOL)containsString:(nullable NSString *)theString;
 
-- (BOOL)beginsWithString:(NSString *__nullable)theString;
+- (BOOL)beginsWithString:(nullable NSString *)theString;
 - (unichar)lastChar;
 - (unichar)firstChar;
-- (NSString *__nullable)stringForPhoneNumber;
-- (NSString *__nonnull)stringWithFirstCharUpperCase;
+- (nullable NSString *)stringForPhoneNumber;
+- (NSString *)stringWithFirstCharUpperCase;
 
 /** \important!!! theLeftDivider shouldn't be equal to theRightDivider */
 - (NSString *__nullable)stringBetweenString:(NSString *__nullable)theLeftDivider
                                   andString:(NSString *__nullable)theRightDivider;
 
 //Validation
-- (BOOL)validateWithRegex:(NSString *__nonnull)theRegex;
-+ (NSPredicate *__nonnull)predicateWithRegex:(NSString *__nonnull)regex;
+- (BOOL)validateWithRegex:(NSString *)theRegex;
++ (NSPredicate *)predicateWithRegex:(NSString *)regex;
 - (BOOL)validateEmail;
-- (NSString *__nonnull)stringByRemovingNFirstChars:(NSUInteger)theN;
-- (NSString *__nonnull)stringByRemovingPrefix:(NSString *__nullable)thePrefixName;
+- (NSString *)stringByRemovingNFirstChars:(NSUInteger)theN;
+- (NSString *)stringByRemovingPrefix:(NSString *__nullable)thePrefixName;
 
-+ (NSString *__nonnull)stringWithComponents:(NSArray *__nonnull)components concatenatedBy:(NSString *__nullable)separator;
++ (NSString *)stringWithComponents:(NSArray *)components concatenatedBy:(NSString *__nullable)separator;
 
 /** Return yes if self string path extension is on of the pathExtensions extensions. */
 - (BOOL)isPathExtensionEqualToOneOf:(NSArray *__nullable)pathExtensions;
 
 /** \param setter looks like: setParamName */
-+ (NSString *__nonnull)propertyNameFromSetter:(SEL __nonnull)setter;
++ (NSString *)propertyNameFromSetter:(SEL )setter;
 
-- (NSString *__nonnull)perlSearchRegex;
+- (NSString *)perlSearchRegex;
 
-- (NSString *__nonnull)truncateToLength:(NSUInteger)lenght;
+- (NSString *)truncateToLength:(NSUInteger)lenght;
 
 
 /** Determine whether target string contains only ANSI chars. */
@@ -64,15 +66,15 @@ extern NSString *__nonnull const EMAIL_REGEX;
 
 /** Make a MD5 hash from the target string
  \return MD5 hash of the target string */
-- (NSString *__nonnull)MD5Hash;
+- (NSString *)MD5Hash;
 
 /** Creates a string from the bytes in form:
  100 bytes 10 KB, 20 MB, 30 GB, 40 TB, 50 PB */
-+ (NSString *__nonnull)sizePrettyStringWithBytes:(DSFileSize)theSizeInBytes;
-+ (NSString *__nonnull)sizePrettyString1000NominationWithBytes:(DSFileSize)theSizeInBytes;
++ (NSString *)sizePrettyStringWithBytes:(DSFileSize)theSizeInBytes;
++ (NSString *)sizePrettyString1000NominationWithBytes:(DSFileSize)theSizeInBytes;
 
 /** Apply NSLocalizedString to the target string */
-- (NSString *__nonnull)localized;
+- (NSString *)localized;
 
 /** Return image from the app Bundle with name of the target string taking into account 4' screen size.
  * Files naming convention:
@@ -84,9 +86,11 @@ extern NSString *__nonnull const EMAIL_REGEX;
 
 - (NSDictionary *__nullable)loadPlistFromBundle;
 
-- (NSString *__nonnull)trimWhiteSpaces;
+- (NSString *)trimWhiteSpaces;
 
-- (NSString *__nonnull)urlCompliantString;
+- (NSString *)urlCompliantString;
 
-+ (NSString *__nonnull)generateUUIDString;
++ (NSString *)generateUUIDString;
 @end
+
+NS_ASSUME_NONNULL_END

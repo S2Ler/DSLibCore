@@ -64,10 +64,14 @@ NSString *const EMAIL_REGEX = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
     }
   }
   
-  NSString *fixedString = [NSString stringWithCharacters:chars
-                                                  length:charsIdx];
+  
+  NSString *output = nil;
+  if (charsIdx > 0) {
+    output = [NSString stringWithCharacters:chars
+                                     length:charsIdx];
+  }
   free(chars);
-  return fixedString;
+  return output;
 }
 
 - (NSString *)stringWithFirstCharUpperCase
@@ -257,10 +261,13 @@ NSString *const EMAIL_REGEX = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
     }
   }
   
-  NSString *fixedString = [NSString stringWithCharacters:chars
-                                                  length:charsIdx];
+  NSString *output = nil;
+  if (charsIdx > 0) {
+    output = [NSString stringWithCharacters:chars
+                                     length:charsIdx];
+  }
   free(chars);
-  return fixedString;
+  return output;
 }
 
 - (NSString *)perlSearchRegex
