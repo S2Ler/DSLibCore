@@ -33,7 +33,7 @@
 		B03C8928EDEFD46C98BBFA11 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DFCB6D8D28C5933B5B000497 /* Pods-DSLibCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSLibCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSLibCore/Pods-DSLibCore.release.xcconfig"; sourceTree = "<group>"; };
 		E652774039D54123EDAD7969 /* Pods-DSLibCorePlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSLibCorePlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSLibCorePlayground/Pods-DSLibCorePlayground.release.xcconfig"; sourceTree = "<group>"; };
-		E748D6799281C6EAC021ED94 /* DSLibCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DSLibCore.podspec; path = ../DSLibCore.podspec; sourceTree = "<group>"; };
+		E748D6799281C6EAC021ED94 /* DSLibCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = DSLibCore.podspec; path = ../DSLibCore.podspec; sourceTree = "<group>"; };
 		FFC7787F978C71C9C62CA2A1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

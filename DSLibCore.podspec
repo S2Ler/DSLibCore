@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DSLibCore"
-  s.version          = "1.1.0"
+  s.version          = "1.2.0"
   s.summary          = "A set of usefull classes"
   s.description      = <<-DESC
 A set of usefull classes. A description to be written.
@@ -24,10 +24,18 @@ A set of usefull classes. A description to be written.
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
+  s.subspec 'no-arc' do |sp|
+    sp.source_files = 'Pod/Classes/no-arc/*'
+    sp.requires_arc = false
+  end
+
+  s.subspec 'Core' do |sp|
+  	sp.dependency 'DSLibCore/no-arc'
+    sp.source_files = 'Pod/Classes/*.{h,m}'
+    sp.resource_bundles = {
     'DSLibCore' => ['Pod/Assets/*.png']
-  }
+    }
+  end
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
