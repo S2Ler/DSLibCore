@@ -31,7 +31,7 @@ A set of usefull classes. A description to be written.
 
   s.subspec 'Core' do |sp|
   	sp.dependency 'DSLibCore/no-arc'
-    sp.source_files = 'Pod/Classes/*.{h,m}'
+    sp.source_files = 'Pod/Classes/*.{h,m,swift}'
     sp.resource_bundles = {
     'DSLibCore' => ['Pod/Assets/*.png']
     }
