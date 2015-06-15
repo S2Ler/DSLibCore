@@ -27,7 +27,7 @@ return _sharedObject;
 #define DISPATCH_AFTER_SECONDS(TIME_IN_SECONDS, BLOCK) {DISPATCH_AFTER_SECONDS_Q(TIME_IN_SECONDS, BLOCK, dispatch_get_main_queue())}
 
 
-#define ASSERT_ABSTRACT_METHOD NSAssert(@"%@ is abstract in class '%@'. Overwrite in subclasses", NSStringFromSelector(_cmd), NSStringFromClass([self class]))
+#define ASSERT_ABSTRACT_METHOD NSAssert(NO, @"%@ is abstract in class '%@'. Overwrite in subclasses", NSStringFromSelector(_cmd), NSStringFromClass([self class]))
 #define UNHANDLED_IF else{NSAssert(NO,@"Check last else statement in class: %@; method: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));}
 #define UNHANDLED_SWITCH NSAssert(NO,@"Check switch statement in class: %@; method: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
