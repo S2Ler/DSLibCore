@@ -1,5 +1,7 @@
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^NSObjectObserverBlock)(id object, NSString *keyPath);
 typedef void (^NSObjectAggregatedObserverBlock) (id object, NSArray *changedKeypaths);
 
@@ -17,3 +19,5 @@ typedef void (^NSObjectAggregatedObserverBlock) (id object, NSArray *changedKeyp
 - (void)addAggregatedObserverForKeyPaths:(NSArray *)keypaths block:(NSObjectAggregatedObserverBlock)block;
 - (void)removeObserverForKeyPaths:(NSArray *)keypaths;
 @end
+
+NS_ASSUME_NONNULL_END
