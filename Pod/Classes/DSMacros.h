@@ -28,6 +28,7 @@ return _sharedObject;
 
 
 #define ASSERT_ABSTRACT_METHOD NSAssert(NO, @"%@ is abstract in class '%@'. Overwrite in subclasses", NSStringFromSelector(_cmd), NSStringFromClass([self class]))
+#define ASSERT_NOT_SUPPORTED_METHOD NSAssert(NO, @"%@ isn't supported in class '%@'. Find another one", NSStringFromSelector(_cmd), NSStringFromClass([self class]))
 #define UNHANDLED_IF else{NSAssert(NO,@"Check last else statement in class: %@; method: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));}
 #define UNHANDLED_SWITCH NSAssert(NO,@"Check switch statement in class: %@; method: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
