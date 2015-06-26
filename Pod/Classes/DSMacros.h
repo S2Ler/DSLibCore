@@ -50,3 +50,4 @@ return _sharedObject;
 
 
 #define DSDynamicCast(x, c) ((c *) ([x isKindOfClass:[c class]] ? x : nil))
+

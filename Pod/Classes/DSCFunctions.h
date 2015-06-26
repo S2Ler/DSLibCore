@@ -21,4 +21,5 @@ DSFileSize getFreeDiskSpace(NSError *__nullable * __nonnull errorRef);
 struct task_basic_info get_task_info(char *__nullable *__nonnull errorStringRef);
 
 float randomFloatInRange(float smallNumber, float bigNumber);
-
+/** Returns class name string without module name (Swift) */
+NSString *__nonnull DSNSStringFromClass(Class __nonnull class);

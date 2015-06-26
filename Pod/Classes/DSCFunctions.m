@@ -98,3 +98,15 @@ float randomFloatInRange(float smallNumber, float bigNumber)
   float diff = bigNumber - smallNumber;
   return (((float) (arc4random() % ((unsigned) RAND_MAX + 1)) / RAND_MAX) * diff) + smallNumber;
 }
+
+NSString *DSNSStringFromClass(Class class)
+{
+  NSString *const fullClassName = NSStringFromClass(class);
+  NSString *const pathExtension = fullClassName.pathExtension;
+  if (pathExtension.length > 0) {
+    return pathExtension;
+  }
+  else {
+    return fullClassName;
+  }
+}
