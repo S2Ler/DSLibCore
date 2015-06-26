@@ -8,14 +8,16 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DSDynamicPropertyObject : NSObject
-@property (nonatomic, strong) id container;
+@property (nonatomic, strong, nonnull) id container;
 
-- (id)initWithContainer:(id)container;
+- (instancetype)initWithContainer:(nonnull id)container;
 
-- (id)containerValueForKeyPath:(NSString *)keyPath;
+- (nullable id)containerValueForKeyPath:(nonnull NSString *)keyPath;
 
-- (NSDictionary *)allValues;
+- (nonnull NSDictionary *)allValues;
 @end
 
 @interface DSDynamicPropertyObject (Abstract)
@@ -26,7 +28,9 @@
  - overwrite keypathForGetter: method to return keypath in responseDictionary for this property
  - look into forwardInvocation: if some of the property types isn't supported and add a new handler
  */
-- (NSString *)keypathForGetter:(NSString *)getter;
+- (nonnull NSString *)keypathForGetter:(nonnull NSString *)getter;
 
-- (NSString *)dateFormatForGetter:(NSString *)getter;
+- (nullable NSString *)dateFormatForGetter:(nonnull NSString *)getter;
 @end
+
+NS_ASSUME_NONNULL_END

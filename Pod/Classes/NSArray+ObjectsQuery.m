@@ -6,6 +6,8 @@
 - (NSArray *)objectsFromIndex:(NSUInteger)theFrom
 					  count:(NSUInteger)theCount 
 {
+  if ((theFrom >= self.count) || (theFrom + theCount > self.count)) {return nil;}
+  
 	return [self objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:
                                  NSMakeRange(theFrom, theCount)]];
 }

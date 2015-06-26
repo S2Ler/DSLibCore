@@ -98,7 +98,7 @@
 
 - (NSString *)settingsPrefix
 {
-    return NSStringFromClass([self class]);
+  return NSStringFromClass([self class]);
 }
 
 - (NSString *)saveKeyFromKey:(NSString *)key

@@ -1,5 +1,7 @@
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** First In First Out queue.
  If number of items exceed theCapacity defined in initWithCapacity: method the object which
  came first will be removed.
@@ -13,10 +15,10 @@ NSFastEnumeration
 > 
 
 /** \param theCapacity maximum number of items in queue */
-- (id __nonnull)initWithCapacity:(NSUInteger)theCapacity NS_DESIGNATED_INITIALIZER;
-- (id __nonnull)init NS_DESIGNATED_INITIALIZER;
-- (id __nonnull)initWithCoder:(NSCoder *__nonnull)aDecoder NS_DESIGNATED_INITIALIZER;
-+ (DSQueue *__nonnull)queue;
+- (instancetype)initWithCapacity:(NSUInteger)theCapacity NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *__nonnull)aDecoder NS_DESIGNATED_INITIALIZER;
++ (instancetype)queue;
 
 /** \return Poped object from the queue. The one which pushed last. */
 - (id __nullable)pop;
@@ -55,19 +57,21 @@ NSFastEnumeration
 - (BOOL)isFull;
 
 /** \return enumerator for all objects in queue */
-- (NSEnumerator *__nonnull)objectEnumerator;
+- (NSEnumerator *)objectEnumerator;
 
 /** \return reversed enumerator for all objects in queue */
-- (NSEnumerator *__nonnull)reverseObjectEnumerator;
+- (NSEnumerator *)reverseObjectEnumerator;
 
-- (id __nullable)firstObjectWhichEqualsTo:(id __nonnull)object;
+- (id __nullable)firstObjectWhichEqualsTo:(id)object;
 
-- (void)filterWithPredicate:(NSPredicate *__nonnull)predicate;
+- (void)filterWithPredicate:(NSPredicate *)predicate;
 
-- (NSArray *__nonnull)array;
+- (NSArray *)array;
 @end
 
 /** For internal and subclass use */
 @interface DSQueue()
 @property (assign) BOOL isFull;
 @end
+
+NS_ASSUME_NONNULL_END

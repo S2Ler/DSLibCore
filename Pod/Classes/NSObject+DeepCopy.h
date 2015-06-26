@@ -1,6 +1,11 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSObject (DeepCopy)
-- (id)deepCopy;
+/** Checks for NSCoding conformance and return nil if receiver doesn't conform. */
+- (nullable instancetype)deepCopy;
 @end
+
+NS_ASSUME_NONNULL_END

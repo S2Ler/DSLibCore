@@ -1,6 +1,8 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSArray (Extras)
 
 - (NSUInteger)indexForInsertingObject:(id)anObject
@@ -10,8 +12,7 @@
                  equalUsingBlock:(NSInteger (^)(id a, id b))compare;
 
 
-- (id)firstObject;
-- (id)ds_objectAtIndex:(NSUInteger)index;
+- (nullable id)ds_objectAtIndex:(NSUInteger)index;
 
 - (NSArray *)imagesArray;
 
@@ -21,14 +22,16 @@
 /** objects at keyPath should conform to NSCopying protocol */
 - (NSDictionary *)mapObjectsByKeyPath:(NSString *)keyPath;
 - (NSDictionary *)mapObjectsByKeyPath:(NSString *)keyPath
-            sortedWithSortDescriptors:(NSArray *)sortDescriptors;
+            sortedWithSortDescriptors:(nullable NSArray *)sortDescriptors;
 - (NSUInteger)countObject:(id)object;
 
 - (NSArray *)filteredArrayUsingBlock:(BOOL(^)(id evaluatedObject))block;
 
-- (id)randomObject;
+- (nullable id)randomObject;
 
 - (NSArray *)map:(id(^)(id object))block;
 @end
 
 NSArray *mapFast(NSObject<NSFastEnumeration> *fastEnumerator, id(^block)(id));
+
+NS_ASSUME_NONNULL_END

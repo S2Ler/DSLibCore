@@ -9,4 +9,4 @@
 #import "DSConstants.h"
 
 const DSFileSize DSFileSize_Max = OFF_MAX;
-DSFileSize DSFileSizeUndefined = -1;
+const DSFileSize DSFileSizeUndefined = -1;

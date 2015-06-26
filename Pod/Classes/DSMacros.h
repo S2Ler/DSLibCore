@@ -11,8 +11,8 @@ _sharedObject = block(); \
 }); \
 return _sharedObject;
 
-#define iOS7orHigher ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7)
-#define iOS8orHigher ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 8)
+BOOL iOS7orHigher(void);
+BOOL iOS8orHigher(void);
 
 #define isScreenSizeHigherThanIPhone4 ([[UIScreen mainScreen] preferredMode].size.height > 480 * [[UIScreen mainScreen] scale] && !isIPadIdiom())
 
@@ -50,4 +50,6 @@ return _sharedObject;
 
 
 #define DSDynamicCast(x, c) ((c *) ([x isKindOfClass:[c class]] ? x : nil))
+
+BOOL iOS7orHigher_f(void);
 

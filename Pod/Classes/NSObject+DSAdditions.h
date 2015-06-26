@@ -1,6 +1,8 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 //TODO: doesn't work with cross references.
 //23.11.2012 Tried to add support for cross references but got an issues with description for NSNumber, NSString etc.
 #define OVERWRITE_DESCRIPTION 0
@@ -21,3 +23,5 @@
                                            includeDepth:(NSUInteger)depth;
 - (NSDictionary *)filterOutNonRespondingKeys:(NSDictionary *)keysAndValues;
 @end
+
+NS_ASSUME_NONNULL_END

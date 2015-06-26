@@ -1,6 +1,8 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSDate (OAddittions)
 
 + (NSDate *)currentDate;
@@ -18,8 +20,6 @@
 - (NSInteger)hours;
 
 - (NSInteger)minutes;
-
-- (NSString *)dateString;
 
 - (NSDate *)dateAtStartOfWeek;
 
@@ -46,3 +46,5 @@
 - (NSDate *)dateByDroppingMilliseconds;
 
 @end
+
+NS_ASSUME_NONNULL_END

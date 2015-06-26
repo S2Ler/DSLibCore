@@ -58,10 +58,6 @@
 
 - (NSString *)machineCode
 {
-  //	NSDictionary*models = [NSDictionary
-  //						   dictionaryWithObjects:[NSArray arrayWithObjects:@"iPhone", @"iPhone 3G", @"iPhone 3GS", @"iPhone 4", nil]
-  //						   forKeys:[NSArray arrayWithObjects:@"iPhone1,1", @"iPhone1,2", @"iPhone2,1", @"iPhone3,1", nil]
-  //						   ];
 	size_t size;
 	
 	// Set 'oldp' parameter to NULL to get the size of the data

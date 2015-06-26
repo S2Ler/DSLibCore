@@ -9,6 +9,8 @@
 @import Foundation;
 #import "DSConstants.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSNumber (DSAdditions)
 - (DSFileSize)fileSizeValue;
 + (instancetype)numberWithFileSize:(DSFileSize)fileSize;
@@ -17,3 +19,5 @@
 + (instancetype)numberWithRecID:(DSRecID)recID;
 @end
 
+
+NS_ASSUME_NONNULL_END

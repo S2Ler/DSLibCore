@@ -8,6 +8,10 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSOutputStream (DSAdditions)
-- (NSInteger)writeData:(NSData *)data error:(NSError *__autoreleasing*)error;
+- (NSInteger)writeData:(NSData *)data error:(NSError *__autoreleasing __nullable* __nullable)error;
 @end
+
+NS_ASSUME_NONNULL_END

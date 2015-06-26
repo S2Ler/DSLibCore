@@ -176,6 +176,7 @@
 - (NSDictionary *)allValues
 {
   NSMutableDictionary *values = [NSMutableDictionary dictionary];
+  
   NSArray *properties = [[self class] rt_properties];
   for (RTProperty *property in properties) {
     SEL selector = NSSelectorFromString([property name]);

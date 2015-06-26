@@ -122,13 +122,6 @@ static NSCalendar *gregorianCalendar;
   return [[self componentsForUnit:NSCalendarUnitMinute] minute];
 }
 
-- (NSString *)dateString
-{
-  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setDateStyle:NSDateFormatterShortStyle];
-  return [formatter stringFromDate:self];
-}
-
 + (NSDate *)dateForUnit:(NSCalendarUnit)unit beforeDate:(NSDate *)date
 {
   NSDate *result;

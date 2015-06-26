@@ -2,11 +2,13 @@
 @import Foundation;
 #import "objc/runtime.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DSRuntimeHacker : NSObject
 
-- (id)initWithClient:(id)clientObject;
-+ (id)hackerWithClient:(id)client;
-- (NSString *)propertyName:(id)property;
+- (instancetype)initWithClient:(id)clientObject;
++ (instancetype)hackerWithClient:(id)client;
+- (nullable NSString *)propertyName:(id)property;
 - (NSArray *)allProperties;
 - (NSArray *)allPropertyNames;
 /** Doesn't include superclasses of propertyClass.
@@ -20,5 +22,7 @@
 - (NSString *)classNameForObject:(id)object;
 
 /** Only properties like NSNumber *name; NSArray *name; and so on are supported */
-- (Class)classForProperty:(objc_property_t)theProperty;
+- (nullable Class)classForProperty:(objc_property_t)theProperty;
 @end
+
+NS_ASSUME_NONNULL_END

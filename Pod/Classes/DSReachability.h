@@ -28,6 +28,7 @@
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 /** 
  * Create NS_ENUM macro if it does not exist on the targeted version of iOS or OS X.
@@ -55,8 +56,8 @@ typedef void (^NetworkUnreachable)(DSReachability * reachability);
 
 @interface DSReachability : NSObject
 
-@property (nonatomic, copy) NetworkReachable    reachableBlock;
-@property (nonatomic, copy) NetworkUnreachable  unreachableBlock;
+@property (nonatomic, copy, nullable) NetworkReachable    reachableBlock;
+@property (nonatomic, copy, nullable) NetworkUnreachable  unreachableBlock;
 
 @property (nonatomic, assign) BOOL reachableOnWWAN;
 
@@ -93,3 +94,5 @@ typedef void (^NetworkUnreachable)(DSReachability * reachability);
 -(NSString*)currentReachabilityFlags;
 
 @end
+
+NS_ASSUME_NONNULL_END

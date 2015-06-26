@@ -1,6 +1,8 @@
 @import Foundation;
 @import UIKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** Query various device params */
 @interface UIDevice (Additions)
 
@@ -17,3 +19,5 @@
 
 - (NSString *)machineCode;
 @end
+
+NS_ASSUME_NONNULL_END

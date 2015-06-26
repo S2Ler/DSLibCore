@@ -8,7 +8,11 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DSWeakTimerTarget : NSObject
 - (instancetype)initWithTarget:(id)target selector:(SEL)sel;
 - (void)timerDidFire:(NSTimer *)timer;;
 @end
+
+NS_ASSUME_NONNULL_END

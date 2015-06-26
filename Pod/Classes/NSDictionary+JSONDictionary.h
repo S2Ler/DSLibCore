@@ -1,7 +1,11 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSDictionary (JSONDictionary)
-- (NSString *)stringValueForKey:(NSString *)key;
-- (NSNumber *)numberValueForKey:(NSString *)key;
+- (nullable NSString *)stringValueForKey:(NSString *)key;
+- (nullable NSNumber *)numberValueForKey:(NSString *)key;
 @end
+
+NS_ASSUME_NONNULL_END

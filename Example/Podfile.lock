@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DSLibCore: d6c6bebd7466aab57efd0fe1d2732e9eafc46e67
+  DSLibCore: 9b0d8ee3d9604ed49eeadb653046d1c2fade6868
   Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
   Specta: 9cec98310dca411f7c7ffd6943552b501622abfe
 

@@ -101,7 +101,7 @@ float randomFloatInRange(float smallNumber, float bigNumber)
 
 NSString *DSNSStringFromClass(Class class)
 {
-  NSString *const fullClassName = NSStringFromClass(class);
+  NSString *const fullClassName = NSStringFromClass(class);  
   NSString *const pathExtension = fullClassName.pathExtension;
   if (pathExtension.length > 0) {
     return pathExtension;

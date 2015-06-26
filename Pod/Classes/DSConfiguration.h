@@ -1,6 +1,8 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
 * Handy class for encapsulating configuration keys.
  * If setupSharedInstanceWithConfigurationDictionary hasn't been called DSConfiguration.plist dictionary will be used.
@@ -14,7 +16,7 @@
 * In you configuration dictionary/plist you can add postfix to each parameter which should be equal to configurationScheme.
 * If you omit configurationScheme or it cannot be found, default scheme will be loaded (default scheme is a key without any '_SCHEME' at the end.
 */
-@property (strong) NSString *configurationScheme;
+@property (strong, nullable) NSString *configurationScheme;
 
 /** [CLASS_NAME].plist is used if setupSharedInstanceWithConfigurationDictionary: wasn't called before */
 + (instancetype)sharedInstance;
@@ -23,3 +25,5 @@
 + (instancetype)setupSharedInstanceWithConfigurationDictionary:(NSDictionary *)theConfiguration;
 
 @end
+
+NS_ASSUME_NONNULL_END
