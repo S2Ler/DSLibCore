@@ -51,5 +51,3 @@ BOOL iOS8orHigher(void);
 
 #define DSDynamicCast(x, c) ((c *) ([x isKindOfClass:[c class]] ? x : nil))
 
-BOOL iOS7orHigher_f(void);
-
