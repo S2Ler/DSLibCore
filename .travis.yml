@@ -2,3 +2,6 @@ language: objective-c
 xcode_workspace: Example/DSLibCore.xcworkspace
 xcode_scheme: DSLibCore-Example
 podfile: Example/Podfile
+
+before_install:
+  - gem install cocoapods
