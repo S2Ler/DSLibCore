@@ -1,5 +1,5 @@
 # DSLibCore
-[![CI Status](http://img.shields.io/travis/Alexander Belyavskiy/DSLibCore.svg?style=flat)](https://travis-ci.org/Alexander Belyavskiy/DSLibCore)
+[![CI Status](http://img.shields.io/travis/diejmon/DSLibCore.svg?style=flat)](https://travis-ci.org/diejmon/DSLibCore)
 [![CI Status](https://app.ship.io/jobs/dv9aYdB9pIVRGYtR/build_status.png)](https://app.ship.io/dashboard#/jobs/8690/history)
 [![Version](https://img.shields.io/cocoapods/v/DSLibCore.svg?style=flat)](http://cocoapods.org/pods/DSLibCore)
 [![License](https://img.shields.io/cocoapods/l/DSLibCore.svg?style=flat)](http://cocoapods.org/pods/DSLibCore)
