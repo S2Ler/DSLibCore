@@ -1,0 +1,8 @@
+osx_image: beta-xcode6.3
+language: objective-c
+xcode_workspace: Example/DSLibCore.xcworkspace
+xcode_scheme: DSLibCore-Example
+podfile: Example/Podfile
+
+before_install:
+  - gem install cocoapods

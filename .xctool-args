@@ -1,0 +1,7 @@
+[
+  "-workspace", "Example/DSLibCore.xcworkspace",
+  "-scheme", "DSLibCore-Example",
+  "-configuration", "Debug",
+  "-sdk", "iphonesimulator",
+  "-arch", "i386"
+]
