@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable id)randomObject;
 
 - (NSArray *)map:(id(^)(id object))block;
+
+- (void)ds_apply:(void (^)(id object))function;
 @end
 
 NSArray *mapFast(NSObject<NSFastEnumeration> *fastEnumerator, id(^block)(id));

@@ -183,4 +183,11 @@ NSArray *mapFast(NSObject<NSFastEnumeration> *fastEnumerator, id(^block)(id))
   }
   return results;
 }
+
+- (void)ds_apply:(void (^)(id object))function
+{
+  [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    function(obj);
+  }];
+}
 @end
