@@ -8,6 +8,3 @@ target 'DSLibCore', :exclusive => true do
   pod 'Expecta'
 end
 
-#target 'DSLibCorePlayground', :exclusive => true do
-#  pod "DSLibCore", :path => "../"
-#end
