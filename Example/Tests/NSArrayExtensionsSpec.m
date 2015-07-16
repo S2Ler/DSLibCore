@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Alexander Belyavskiy. All rights reserved.
 //
 
-#import <Specta/Specta.h>
+@import Specta;
 #define EXP_SHORTHAND
-#import <Expecta/Expecta.h>
+@import Expecta;
 
 #import <DSLibCore/NSArray+ObjectsQuery.h>
 

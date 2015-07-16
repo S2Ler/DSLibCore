@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 DS ltd. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <XCTest/XCTest.h>
-#import <Specta/Specta.h>
-#import <DSLibCore/DSQueue.h>
+@import UIKit;
+@import XCTest;
+@import Specta;
+@import DSLibCore.DSQueue;
 
 @interface DSQueue_Tests : XCTestCase
 @property (nonatomic, strong) DSQueue *queue;
