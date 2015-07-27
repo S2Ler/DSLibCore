@@ -7,6 +7,11 @@ BOOL isIPadIdiom(void)
   return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
 }
 
+BOOL isIPhoneIdiom(void)
+{
+  return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
+}
+
 #endif
 
 NSString *DSApplicationDocumentDirectoryPath(void)

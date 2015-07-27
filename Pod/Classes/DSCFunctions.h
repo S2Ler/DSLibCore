@@ -6,6 +6,7 @@
 
 #if TARGET_OS_IPHONE
 BOOL isIPadIdiom(void);
+BOOL isIPhoneIdiom(void);
 #endif
 
 
