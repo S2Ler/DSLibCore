@@ -91,6 +91,8 @@ extern NSString * const EMAIL_REGEX;
 - (NSString *)urlCompliantString;
 
 + (NSString *)generateUUIDString;
+
+- (NSString *)nameAbbreviation;
 @end
 
 NS_ASSUME_NONNULL_END

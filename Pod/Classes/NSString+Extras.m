@@ -440,4 +440,17 @@ NSString *const EMAIL_REGEX = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
   
   return uuidString;
 }
+
+- (NSString *)nameAbbreviation
+{
+  NSMutableString *abbreviation = [NSMutableString new];
+  
+  [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
+                              options:NSStringEnumerationByWords | NSStringEnumerationLocalized
+                           usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop){
+                             unichar component = [substring.uppercaseString firstChar];
+                             [abbreviation appendString:[NSString stringWithCharacters:&component length:1]];
+                           }];
+  return abbreviation.copy;
+}
 @end
