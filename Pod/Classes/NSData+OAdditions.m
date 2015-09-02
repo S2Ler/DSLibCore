@@ -24,7 +24,7 @@
   return nil;
 }
 
-- (NSString *)hexString
+- (NSString *)dsi_hexString
 {  
   NSUInteger capacity = [self length] * 2;
   NSMutableString *stringBuffer = [NSMutableString stringWithCapacity:capacity];

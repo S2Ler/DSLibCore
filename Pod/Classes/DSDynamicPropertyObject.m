@@ -11,6 +11,7 @@
 #import "MARTNSObject.h"
 #import "RTProperty.h"
 #import "DSMacros.h"
+#import "NSObject+DSAdditions.h"
 
 @interface DSDynamicPropertyObject ()
 @property (nonatomic, strong) NSMutableDictionary *dateFormatters;
@@ -57,6 +58,9 @@
   else if ([type hasPrefix:@"q"]) {
     [anInvocation setSelector:@selector(handleLongLongWithName:)];
   }
+  else if ([type hasPrefix:@"B"] || [type hasPrefix:@"c"]) {
+    [anInvocation setSelector:@selector(handleBOOLWithName:)];
+  }
   UNHANDLED_IF;
   
   [anInvocation invokeWithTarget:self];
@@ -82,7 +86,7 @@
 
 - (NSNumber *)numberForGetterName:(NSString *)getterName
 {
-  id numberObject = [[self container] valueForKeyPath:[self keypathForGetter:getterName]];
+  id numberObject = [[self container] ds_jsonValueForKeyPath:[self keypathForGetter:getterName]];
   NSNumber *number = nil;
   
   if ([numberObject isKindOfClass:[NSNumber class]]) {
@@ -118,10 +122,16 @@
   return [number longLongValue];
 }
 
+- (BOOL)handleBOOLWithName:(NSString *)getterName
+{
+  NSNumber *number = [self numberForGetterName:getterName];
+  return [number boolValue];
+}
+
 /** \param theSetter looks like: setParamName */
 - (id)handleObjectGetterWithName:(NSString *)getterName
 {
-  NSString *value = [[self container] valueForKeyPath:[self keypathForGetter:getterName]];
+  NSString *value = [[self container] ds_jsonValueForKeyPath:[self keypathForGetter:getterName]];
   return value;
 }
 
@@ -133,8 +143,12 @@
 
 - (id)handleStringToDateGetterWithName:(NSString *)getterName
 {
-  id dateObject = [[self container] valueForKeyPath:[self keypathForGetter:getterName]];
+  id dateObject = [[self container] ds_jsonValueForKeyPath:[self keypathForGetter:getterName]];
   NSDate *date = nil;
+  
+  if ([dateObject isKindOfClass:[NSNumber class]]) {
+    dateObject = [NSString stringWithFormat:@"%@", dateObject];
+  }
   
   if ([dateObject isKindOfClass:[NSDate class]]) {
     date = dateObject;
@@ -207,6 +221,6 @@
 
 - (id)containerValueForKeyPath:(NSString *)keyPath
 {
-  return [[self container] valueForKeyPath:keyPath];
+  return [[self container] ds_jsonValueForKeyPath:keyPath];
 }
 @end

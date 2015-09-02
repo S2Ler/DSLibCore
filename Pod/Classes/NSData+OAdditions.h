@@ -8,7 +8,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable NSData *)SHA256;
 
-- (NSString *)hexString;
+- (NSString *)dsi_hexString;
 
 - (NSString *)deviceTokenString;
 @end

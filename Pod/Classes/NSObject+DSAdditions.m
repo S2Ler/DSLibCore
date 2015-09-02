@@ -175,4 +175,20 @@ static char OBJECT_USER_INFO_KEY;
   }
   return filteredKeysAndValues;
 }
+
+- (id)ds_jsonValueForKeyPath:(NSString *)keyPath
+{
+  if (keyPath == nil) {
+    return nil;
+  }
+  
+  id const value = [self valueForKeyPath:keyPath];
+  
+  if ([NSNull null] == value) {
+    return nil;
+  }
+  else {
+    return value;
+  }
+}
 @end

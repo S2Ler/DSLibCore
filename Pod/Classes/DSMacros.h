@@ -49,7 +49,7 @@ BOOL iOS8orHigher(void);
 #define DSWEAK(variable_name, variable) __weak typeof(variable) variable_name = variable;
 #define DSKEYPATH(PATH) NSStringFromSelector(@selector(PATH))
 
-#define DSDynamicCast(x, c) ((c *) ([x isKindOfClass:[c class]] ? x : nil))
+#define DSDynamicCast(object, _class) ((_class *) ([object isKindOfClass:[_class class]] ? object : nil))
 
 #define fequal(a,b) (fabs((a) - (b)) < FLT_EPSILON)
 #define fequalzero(a) (fabs(a) < FLT_EPSILON)

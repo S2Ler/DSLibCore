@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
                                     includeSuperClasses:(BOOL)includeSuperClasses
                                            includeDepth:(NSUInteger)depth;
 - (NSDictionary *)filterOutNonRespondingKeys:(NSDictionary *)keysAndValues;
+
+- (nullable id)ds_jsonValueForKeyPath:(nullable NSString *)keyPath;
 @end
 
 NS_ASSUME_NONNULL_END
