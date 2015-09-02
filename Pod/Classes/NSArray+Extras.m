@@ -190,4 +190,5 @@ NSArray *mapFast(NSObject<NSFastEnumeration> *fastEnumerator, id(^block)(id))
     function(obj);
   }];
 }
+
 @end

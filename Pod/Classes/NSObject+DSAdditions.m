@@ -191,4 +191,23 @@ static char OBJECT_USER_INFO_KEY;
     return value;
   }
 }
+
+- (NSString *)ds_jsonStringWithPrettyPrint:(BOOL)prettyPrint
+{
+  if (![NSJSONSerialization isValidJSONObject:self]) {
+    return nil;
+  }
+  
+  NSError *error = nil;
+  NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self
+                                                     options:(NSJSONWritingOptions)(prettyPrint ? NSJSONWritingPrettyPrinted : 0)
+                                                       error:&error];
+  
+  if (!jsonData) {
+    NSLog(@"ds_jsonStringWithPrettyPrint: error: %@", error.localizedDescription);
+    return nil;
+  } else {
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+  }
+}
 @end

@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary *)filterOutNonRespondingKeys:(NSDictionary *)keysAndValues;
 
 - (nullable id)ds_jsonValueForKeyPath:(nullable NSString *)keyPath;
+
+- (nullable NSString *)ds_jsonStringWithPrettyPrint:(BOOL)prettyPrint;
 @end
 
 NS_ASSUME_NONNULL_END
