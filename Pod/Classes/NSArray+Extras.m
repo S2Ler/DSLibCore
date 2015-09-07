@@ -158,7 +158,7 @@
   }]];
 }
 
-- (id)randomObject
+- (nullable id)randomObject
 {
   id randomObject = [self count] ? self[arc4random_uniform((u_int32_t)[self count])] : nil;
   return randomObject;

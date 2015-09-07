@@ -3,7 +3,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSArray (Extras)
+@interface NSArray<ObjectType> (Extras)
 
 - (NSUInteger)indexForInsertingObject:(id)anObject
                      sortedUsingBlock:(NSInteger (^)(id a, id b))compare;
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray *)filteredArrayUsingBlock:(BOOL(^)(id evaluatedObject))block;
 
-- (nullable id)randomObject;
+- (nullable ObjectType)randomObject;
 
 - (NSArray *)map:(id(^)(id object))block;
 
