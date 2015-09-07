@@ -7,7 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
  came first will be removed.
  If you use init: method the capacity will be NSUIntegerMax.
  */
-@interface DSQueue : NSObject
+@interface DSQueue<__covariant ObjectType> : NSObject
 <
 NSCoding,
 NSCopying,
@@ -21,30 +21,30 @@ NSFastEnumeration
 + (instancetype)queue;
 
 /** \return Poped object from the queue. The one which pushed last. */
-- (id __nullable)pop;
+- (ObjectType __nullable)pop;
 
 /** Adds theObject to the end of queue. 
  @param theObject nil values ignored
  */
-- (void)push:(id __nullable)theObject;
+- (void)push:(ObjectType __nullable)theObject;
 /** Adds theObject to the beginning of the queue */
-- (void)pushBack:(id __nullable)theObject;
+- (void)pushBack:(ObjectType __nullable)theObject;
 
-- (void)pushObjectsFromArray:(NSArray *__nullable)array;
+- (void)pushObjectsFromArray:(NSArray<ObjectType> *__nullable)array;
 
 /** The top object in the queue */
-- (id __nullable)top;
+- (nullable ObjectType)top;
 
 /** The first object in queue */
-- (id __nullable)first;
+- (nullable ObjectType)first;
 
 /** Remove all objects from the queue */
 - (void)removeAll;
 
 /** Remove specific objects from queue */
-- (void)removeObjectsInArray:(NSArray *__nullable)theObjects;
+- (void)removeObjectsInArray:(NSArray<ObjectType> *__nullable)theObjects;
 
-- (BOOL)containsObject:(id __nullable)anObject;
+- (BOOL)containsObject:(ObjectType __nullable)anObject;
 
 /** \return current number of objects in the queue */
 - (NSUInteger)count;
@@ -62,11 +62,11 @@ NSFastEnumeration
 /** \return reversed enumerator for all objects in queue */
 - (NSEnumerator *)reverseObjectEnumerator;
 
-- (id __nullable)firstObjectWhichEqualsTo:(id)object;
+- (id __nullable)firstObjectWhichEqualsTo:(ObjectType)object;
 
 - (void)filterWithPredicate:(NSPredicate *)predicate;
 
-- (NSArray *)array;
+- (NSArray<ObjectType> *)array;
 @end
 
 /** For internal and subclass use */
