@@ -7,7 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
  came first will be removed.
  If you use init: method the capacity will be NSUIntegerMax.
  */
-@interface DSQueue<__covariant ObjectType> : NSObject
+@interface DSQueue<ObjectType> : NSObject
 <
 NSCoding,
 NSCopying,
@@ -57,12 +57,12 @@ NSFastEnumeration
 - (BOOL)isFull;
 
 /** \return enumerator for all objects in queue */
-- (NSEnumerator *)objectEnumerator;
+- (NSEnumerator<ObjectType> *)objectEnumerator;
 
 /** \return reversed enumerator for all objects in queue */
-- (NSEnumerator *)reverseObjectEnumerator;
+- (NSEnumerator<ObjectType> *)reverseObjectEnumerator;
 
-- (id __nullable)firstObjectWhichEqualsTo:(ObjectType)object;
+- (ObjectType __nullable)firstObjectWhichEqualsTo:(ObjectType)object;
 
 - (void)filterWithPredicate:(NSPredicate *)predicate;
 

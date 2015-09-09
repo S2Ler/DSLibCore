@@ -25,13 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
             sortedWithSortDescriptors:(nullable NSArray *)sortDescriptors;
 - (NSUInteger)countObject:(id)object;
 
-- (NSArray *)filteredArrayUsingBlock:(BOOL(^)(id evaluatedObject))block;
+- (NSArray *)filteredArrayUsingBlock:(BOOL(^)(ObjectType evaluatedObject))block;
 
 - (nullable ObjectType)randomObject;
 
-- (NSArray *)map:(id(^)(id object))block;
+- (NSArray *)map:(id(^)(ObjectType object))block;
 
-- (void)ds_apply:(void (^)(id object))function;
+- (void)ds_apply:(void (^)(ObjectType object))function;
 
 @end
 
