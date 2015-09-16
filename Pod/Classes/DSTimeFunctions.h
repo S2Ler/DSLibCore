@@ -7,3 +7,6 @@
 #define NSTimeIntervalWithSeconds(seconds) (seconds)
 
 
+NSTimeInterval DSTimeIntervalWithWeeks(NSInteger weeks);
+NSTimeInterval DSTimeIntervalWithHours(NSInteger hours);
+NSTimeInterval DSTimeIntervalWithMinutes(NSInteger minutes);
