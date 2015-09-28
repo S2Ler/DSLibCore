@@ -76,15 +76,7 @@ typedef NS_OPTIONS(NSUInteger, JLTDelayOperationState) {
 
 - (dispatch_queue_t)jlt_dispatchQueue
 {
-    NSOperationQueue *queue = [NSOperationQueue currentQueue];
-
-    if (queue == nil) {
-        // If this operation was started outside any operation queue, then
-        // return a dispatch queue for it to execute in.
-        return dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0);
-    }
-
-    return queue.underlyingQueue;
+  return dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0);
 }
 
 #pragma mark Memory lifecycle
