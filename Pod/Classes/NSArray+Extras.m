@@ -48,15 +48,6 @@
 	return NSNotFound;
 }
 
-- (id)firstObject
-{
-  if ([self count] > 0) {
-    return [self objectAtIndex:0];
-  } else {
-    return nil;
-  }
-}
-
 - (id)ds_objectAtIndex:(NSUInteger)index
 {
   if ([self count] > index) {
