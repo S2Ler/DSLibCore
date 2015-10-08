@@ -32,6 +32,6 @@ void DSRedirectLog(NSString *format, ...)
 {
   va_list list;
   va_start(list, format);
-  
   [[DSRedirectLogs sharedInstance] log:format args:list];
+  va_end(list);
 }
