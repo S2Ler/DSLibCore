@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable ObjectType)randomObject;
 
 - (NSArray *)map:(id(^)(ObjectType object))block;
+- (NSArray *)flatMap:(_Nullable id(^)(ObjectType object))block;
 
 - (void)ds_apply:(void (^)(ObjectType object))function;
 

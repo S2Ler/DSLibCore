@@ -1,5 +1,6 @@
 
 #import "NSArray+Extras.h"
+#import "NSMutableArray+Additions.h"
 @import UIKit;
 
 @implementation NSArray (Extras)
@@ -161,6 +162,17 @@
   
   [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
     [results addObject:block(obj)];
+  }];
+  
+  return results;
+}
+
+- (NSArray *)flatMap:(_Nullable id(^)(id object))block
+{
+  NSMutableArray *results = [NSMutableArray arrayWithCapacity:[self count]];
+  
+  [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [results addObjectOrNil:block(obj)];
   }];
   
   return results;
