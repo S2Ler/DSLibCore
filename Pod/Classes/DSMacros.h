@@ -58,3 +58,10 @@ static inline BOOL iOS9orHigher(void) {
 #define fequal(a,b) (fabs((a) - (b)) < FLT_EPSILON)
 #define fequalzero(a) (fabs(a) < FLT_EPSILON)
 
+static inline CGRect DSRectChange(CGRect initial, CGRect(^changeBlock)(CGRect)) {
+  return changeBlock(initial);
+}
+
+static inline UIEdgeInsets DSEdgeChange(UIEdgeInsets initial, UIEdgeInsets(^changeBlock)(UIEdgeInsets)) {
+  return changeBlock(initial);
+}
