@@ -11,3 +11,15 @@ public func each<T>(array: Array<T>, block: (T) -> Void) {
     block(obj)
   }
 }
+
+public extension SequenceType {
+  public func firstThat<QueryType>(@noescape predicate: (Generator.Element) -> QueryType?) -> QueryType? {
+    for element in self {
+      if let t = predicate(element) {
+        return t
+      }
+    }
+    
+    return nil
+  }
+}
