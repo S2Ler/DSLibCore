@@ -22,4 +22,15 @@ public extension SequenceType {
     
     return nil
   }
+  
+  public func firstThat(@noescape predicate: (Generator.Element) -> Bool) -> Generator.Element? {
+    for element in self {
+      if predicate(element) {
+        return element
+      }
+    }
+    
+    return nil
+  }
+
 }

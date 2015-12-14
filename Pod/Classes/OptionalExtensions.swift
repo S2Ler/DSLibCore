@@ -9,13 +9,21 @@
 import Foundation
 
 public extension Optional {
-  typealias S = (Wrapped) -> (Int?)
-  public func andThen<U>(f: (Wrapped) -> U?) -> U? {
+  public func andThen<U>(f: (Wrapped) throws -> U?) rethrows -> U? {
     switch self {
     case .Some(let x):
-      return f(x)
+      return try f(x)
     case .None:
       return nil
+    }
+  }
+  
+  public func apply(f: (Wrapped) throws -> ()) rethrows {
+    switch self {
+    case .Some(let x):
+      try f(x)
+    case .None:
+      break
     }
   }
 }
