@@ -32,5 +32,13 @@ public extension SequenceType {
     
     return nil
   }
+  
+  public func apply<T>(function: (Generator.Element) -> T) -> [T] {
+    return map { function($0) }
+  }
+  
+  public func apply(function: (Generator.Element) -> Void) {
+    forEach { function($0) }
+  }
 
 }
