@@ -1,5 +1,6 @@
 @import Foundation;
 #import "DSCFunctions.h"
+#import <tgmath.h>
 
 #define DS_SAVE_RELEASE(obj) [obj release]; obj = nil;
 
