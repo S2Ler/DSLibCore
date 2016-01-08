@@ -13,3 +13,9 @@ public extension CGSize {
     return CGSize(width: ceil(width), height: ceil(height))
   }
 }
+
+public extension NSNumber {
+  public var unwrap: NSNumber {
+    return self ?? NSNumber(integer: 0)
+  }
+}
