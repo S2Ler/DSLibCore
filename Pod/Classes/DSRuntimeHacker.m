@@ -1,7 +1,7 @@
 
 #pragma mark - include
 #import "DSRuntimeHacker.h"
-#include "CStringsFunctions.h"
+#import "CStringsFunctions.h"
 
 #define PROPERTY_NAME_KEY @"name"
 #define PROPERTY_TYPE_KEY @"type"

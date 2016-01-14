@@ -1,9 +1,9 @@
 
 
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "CStringsFunctions.h"
+#import <string.h>
+#import <stdlib.h>
+#import <stdbool.h>
+#import "CStringsFunctions.h"
 
 char *removeChars(const char *theChars, const char *theStr)
 {    
