@@ -50,7 +50,7 @@ static inline BOOL iOS9orHigher(void) {
 #define DSGRAYA(gray, alpha) [UIColor colorWithWhite:gray/255. alpha:alpha]
 
 #define DSWEAK_SELF __weak typeof(self) weakSelf = self
-#define DSSTRONG_SELF __strong typeof(self) strongSelf = weakSelf
+#define DSSTRONG_SELF __strong typeof(weakSelf) strongSelf = weakSelf
 #define DSWEAK(variable_name, variable) __weak typeof(variable) variable_name = variable;
 #define DSKEYPATH(PATH) NSStringFromSelector(@selector(PATH))
 
