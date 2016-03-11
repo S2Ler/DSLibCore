@@ -85,6 +85,7 @@ extern NSString * const EMAIL_REGEX;
 - (UIImage *__nullable)image;
 
 - (NSDictionary *__nullable)loadPlistFromBundle;
+- (NSDictionary *__nullable)loadPlistFromBundle:(nullable NSBundle *)bundle;
 
 - (NSString *)trimWhiteSpaces;
 

@@ -405,13 +405,22 @@ NSString *const EMAIL_REGEX = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
 
 - (NSDictionary *)loadPlistFromBundle
 {
-  NSString *plistPath = [[NSBundle mainBundle] pathForResource:self ofType:@"plist"];
-  if (plistPath) {
-    NSDictionary *plist = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-    return plist;
-  } else {
-    return nil;
-  }
+    return [self loadPlistFromBundle:nil];
+}
+
+- (NSDictionary *__nullable)loadPlistFromBundle:(nullable NSBundle *)bundle
+{
+    if (bundle == nil) {
+        bundle == [NSBundle mainBundle];
+    }
+    
+    NSString *plistPath = [bundle pathForResource:self ofType:@"plist"];
+    if (plistPath) {
+        NSDictionary *plist = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+        return plist;
+    } else {
+        return nil;
+    }
 }
 
 - (NSString *)trimWhiteSpaces
