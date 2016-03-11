@@ -102,7 +102,8 @@ static NSDictionary *DSConfiguration_sharedConfiguration = nil;
     return self;
   }
   else {
-    return [self initWithConfiguration:[NSStringFromClass([self class]) loadPlistFromBundle]];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    return [self initWithConfiguration:[DSNSStringFromClass([self class]) loadPlistFromBundle:bundle]];
   }
 }
 
