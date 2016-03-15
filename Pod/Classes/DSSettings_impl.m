@@ -6,6 +6,7 @@
 #pragma mark - private
 @interface DSSettings_impl ()
 @property (nonatomic, strong) NSArray *observedValues;
+@property (nonatomic, strong, null_resettable) NSUserDefaults *userDefaults;
 - (void)setupObserving;
 
 /** The idea is to remove internal properties from list of properties */
@@ -109,8 +110,8 @@
 - (void)saveObject:(id)theObject forKey:(NSString *)theKey
 {
   if ([theObject isEqual:[NSNull null]]) {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:[self saveKeyFromKey:theKey]];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[self userDefaults] removeObjectForKey:[self saveKeyFromKey:theKey]];
+    [[self userDefaults] synchronize];
     return;
   }
 
@@ -118,15 +119,14 @@
     theObject = [NSKeyedArchiver archivedDataWithRootObject:theObject];
   }
   
-  [[NSUserDefaults standardUserDefaults] setObject:theObject
-                                            forKey:[self saveKeyFromKey:theKey]];
-  [[NSUserDefaults standardUserDefaults] synchronize];
+  [[self userDefaults] setObject:theObject forKey:[self saveKeyFromKey:theKey]];
+  [[self userDefaults] synchronize];
 }
 
 - (id)savedObjectForKey:(NSString *)theKey
 {
   if (theKey != nil) {    
-    id object = [[NSUserDefaults standardUserDefaults] objectForKey:[self saveKeyFromKey:theKey]];
+    id object = [[self userDefaults] objectForKey:[self saveKeyFromKey:theKey]];
     if ([object isKindOfClass:[NSData class]]) {
       object = [NSKeyedUnarchiver unarchiveObjectWithData:object];
     }
@@ -160,6 +160,26 @@
 - (id)objectForKey:(NSString *)key
 {
   return [self savedObjectForKey:key];
+}
+
+- (NSUserDefaults *)userDefaults {
+  if (_userDefaults == nil) {
+    if ([self appGroupName] == nil) {
+      _userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    else {
+      _userDefaults = [[NSUserDefaults alloc] initWithSuiteName:[self appGroupName]];
+    }
+  }
+  return _userDefaults;
+}
+
+@end
+
+@implementation DSSettings_impl (Abstract)
+
+- (NSString *)appGroupName {
+  return nil;
 }
 
 @end

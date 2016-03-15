@@ -16,4 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable id)objectForKey:(NSString *)key;
 @end
 
+@interface DSSettings_impl(Abstract)
+/**
+ *  If nil, standard user defaults will be used to store settings
+ *
+ */
+- (nullable NSString *)appGroupName;
+@end
+
 NS_ASSUME_NONNULL_END
