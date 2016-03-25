@@ -105,7 +105,9 @@ NSString *const EMAIL_REGEX = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
 {
   NSString *emailRegex = EMAIL_REGEX;
   
-  BOOL validated = [self validateWithRegex:emailRegex];
+  NSString *truncatedEmail = [self trimWhiteSpaces];
+  
+  BOOL validated = [truncatedEmail validateWithRegex:emailRegex];
   
   return validated;
 }
