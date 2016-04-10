@@ -21,7 +21,6 @@ public func delay(delayInSeconds:Double, queue: dispatch_queue_t, closure:() -> 
   dispatch_after(time, queue, closure)
 }
 
-
 public extension dispatch_queue_t {
   /// Submit `closure` to this queue after `delayInSeconds`
   public func delay(delayInSeconds: Double, closure: () -> Void) {
