@@ -33,6 +33,17 @@ public extension SequenceType {
     return nil
   }
   
+  public func lastThat(@noescape predicate: (Generator.Element) -> Bool) -> Generator.Element? {
+    var last: Generator.Element? = nil
+    for element in self {
+      if predicate(element) {
+        last = element
+      }
+    }
+    
+    return last
+  }
+  
   public func apply<T>(function: (Generator.Element) -> T) -> [T] {
     return map { function($0) }
   }
