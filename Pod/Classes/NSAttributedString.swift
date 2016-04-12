@@ -9,6 +9,7 @@
 import Foundation
 
 public extension NSAttributedString {
+  /// Return NSRange of the whole string
   public var fullRange: NSRange {
     return NSMakeRange(0, self.length)
   }
