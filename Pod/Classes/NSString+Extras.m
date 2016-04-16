@@ -431,6 +431,11 @@ NSString *const EMAIL_REGEX = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
           [NSCharacterSet whitespaceCharacterSet]];
 }
 
+- (NSString *)trimWhiteSpacesAndNewLines {
+  return [self stringByTrimmingCharactersInSet:
+          [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 - (NSString *)urlCompliantString;
 {
   NSString *s

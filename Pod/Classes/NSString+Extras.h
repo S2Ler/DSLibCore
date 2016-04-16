@@ -88,7 +88,7 @@ extern NSString * const EMAIL_REGEX;
 - (NSDictionary *__nullable)loadPlistFromBundle:(nullable NSBundle *)bundle;
 
 - (NSString *)trimWhiteSpaces;
-
+- (NSString *)trimWhiteSpacesAndNewLines;
 - (NSString *)urlCompliantString;
 
 + (NSString *)generateUUIDString;
