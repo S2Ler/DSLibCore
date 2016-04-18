@@ -115,3 +115,7 @@ NSString *DSNSStringFromClass(Class class)
     return fullClassName;
   }
 }
+
+BOOL isRunInExtension() {
+  return [[[NSBundle mainBundle] bundlePath] hasSuffix:@".appex"];
+}

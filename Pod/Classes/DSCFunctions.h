@@ -32,3 +32,5 @@ float randomFloatInRange(float smallNumber, float bigNumber);
 
 /** Returns class name string without module name (Swift) */
 NSString *__nonnull DSNSStringFromClass(Class __nonnull class);
+
+BOOL isRunInExtension();
