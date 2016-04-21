@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 JLT Source. No rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 /*!
  @brief The @c JLTDelayOperation class is a no-op @c NSOperation which allows

@@ -1,7 +1,7 @@
 
 #pragma mark - include
 #import "NSObject+Observing.h"
-#import <objc/runtime.h>
+@import ObjectiveC;
 #import "DSMacros.h"
 
 @interface DSAggregatedChange : NSObject

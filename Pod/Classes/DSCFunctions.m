@@ -1,5 +1,5 @@
 #import "DSCFunctions.h"
-
+@import MachO;
 
 #if TARGET_OS_IPHONE
 BOOL isIPadIdiom(void)
@@ -76,8 +76,6 @@ DSFileSize getFreeDiskSpace(NSError **errorRef)
 
   return totalFreeSpace;
 }
-
-#import <mach/mach.h>
 
 struct task_basic_info get_task_info(char **errorStringRef)
 {

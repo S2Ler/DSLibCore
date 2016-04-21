@@ -1,7 +1,7 @@
 
 #import "MARTNSObject.h"
 
-#import <objc/runtime.h>
+@import ObjectiveC;
 
 #import "RTProtocol.h"
 #import "RTIvar.h"

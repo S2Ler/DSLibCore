@@ -1,8 +1,7 @@
 
 #import "UIDevice+Additions.h"
 #import <sys/sysctl.h>
-#import <mach/mach_host.h>
-#import <mach/host_info.h>
+@import MachO;
 
 @implementation UIDevice (Additions)
 + (NSString *)deviceIOSVersion {

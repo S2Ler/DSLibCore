@@ -1,6 +1,6 @@
 
 #import "NSObject+DSAdditions.h"
-#import "objc/runtime.h"
+@import ObjectiveC;
 #import "MARTNSObject.h"
 #import "RTProperty.h"
 #import "DSMacros.h"
