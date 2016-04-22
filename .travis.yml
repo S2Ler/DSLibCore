@@ -4,10 +4,6 @@ xcode_workspace: Example/DSLibCore.xcworkspace
 xcode_scheme: DSLibCore-Example
 podfile: Example/Podfile
 
-cache:
-  - bundler
-  - cocoapods
-
 script:
   - bundle exec pod install --project-directory=Example
   - set -o pipefail && xcodebuild test -workspace Example/DSLibCore.xcworkspace -scheme DSLibCore-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
