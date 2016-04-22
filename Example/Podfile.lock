@@ -1,10 +1,10 @@
 PODS:
-  - DSLibCore (1.2.0):
-    - DSLibCore/Core (= 1.2.0)
-    - DSLibCore/no-arc (= 1.2.0)
-  - DSLibCore/Core (1.2.0):
+  - DSLibCore (2.0):
+    - DSLibCore/Core (= 2.0)
+    - DSLibCore/no-arc (= 2.0)
+  - DSLibCore/Core (2.0):
     - DSLibCore/no-arc
-  - DSLibCore/no-arc (1.2.0)
+  - DSLibCore/no-arc (2.0)
 
 DEPENDENCIES:
   - DSLibCore (from `../`)
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DSLibCore: c12b0f655488b073cedb3bcc5361e1a2e3fbaf14
+  DSLibCore: 13bc5a43e698ed5ca8c372d112ae04185b693190
 
 PODFILE CHECKSUM: 95070a380a17ee403165e6030929287bcc3f55b5
 
