@@ -1,15 +1,6 @@
-#
-# Be sure to run `pod lib lint DSLibCore.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "DSLibCore"
-  s.version          = "1.2.0"
+  s.version          = "2.0"
   s.summary          = "A set of usefull classes"
   s.description      = <<-DESC
 A set of usefull classes. A description to be written.
@@ -34,7 +25,4 @@ A set of usefull classes. A description to be written.
     sp.source_files = 'Pod/Classes/*.{h,m,swift}'
   end
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
