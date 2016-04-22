@@ -5,21 +5,17 @@ PODS:
   - DSLibCore/Core (1.2.0):
     - DSLibCore/no-arc
   - DSLibCore/no-arc (1.2.0)
-  - Expecta (1.0.3)
-  - Specta (1.0.4)
 
 DEPENDENCIES:
   - DSLibCore (from `../`)
-  - Expecta
-  - Specta
 
 EXTERNAL SOURCES:
   DSLibCore:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DSLibCore: e8a5a7c1685e43952858eccb68d13bcef1be5679
-  Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
-  Specta: 69bb134672aae190a1379ff91df07dad8dd1f869
+  DSLibCore: c12b0f655488b073cedb3bcc5361e1a2e3fbaf14
 
-COCOAPODS: 0.39.0.beta.4
+PODFILE CHECKSUM: 95070a380a17ee403165e6030929287bcc3f55b5
+
+COCOAPODS: 1.0.0.beta.8
