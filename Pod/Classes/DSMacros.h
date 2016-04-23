@@ -41,15 +41,15 @@ BOOL isIPhone4Screen(void);
 
 #define SWAP_METHODS(ORIGINAL_SELECTOR, NEW_SELECTOR) {Method originalMethod = class_getInstanceMethod(self, ORIGINAL_SELECTOR); Method overrideMethod = class_getInstanceMethod(self, NEW_SELECTOR); if (class_addMethod(self, ORIGINAL_SELECTOR, method_getImplementation(overrideMethod), method_getTypeEncoding(overrideMethod))) {class_replaceMethod(self, NEW_SELECTOR, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));} else {  method_exchangeImplementations(originalMethod, overrideMethod);}}
 
-#define DSRGBA(r,g,b,a) [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:a/255.]
-#define DSRGB(r,g,b) [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:1.0]
+#define DSRGBA(r,g,b,a) [UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:a/255.f]
+#define DSRGB(r,g,b) [UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:1.0f]
 #define DSRGB_CG(r,g,b) [DSRGB(r,g,b) CGColor]
 #define DSRGBA_CG(r,g,b,a) [DSRGBA(r,g,b,a) CGColor]
 #define DSRGB_CG_ID(r,g,b) ((__bridge id)[DSRGB(r,g,b) CGColor])
 #define DSRGBA_CG_ID(r,g,b,a) ((__bridge id)[DSRGBA(r,g,b,a) CGColor])
-#define DSGRAY(gray) [UIColor colorWithWhite:gray/255. alpha:1.]
-#define DSGRAY_CG(gray) ([UIColor colorWithWhite:gray/255. alpha:1.].CGColor)
-#define DSGRAYA(gray, alpha) [UIColor colorWithWhite:gray/255. alpha:alpha]
+#define DSGRAY(gray) [UIColor colorWithWhite:gray/255.f alpha:1.f]
+#define DSGRAY_CG(gray) ([UIColor colorWithWhite:gray/255.f alpha:1.f].CGColor)
+#define DSGRAYA(gray, alpha) [UIColor colorWithWhite:gray/255.f alpha:alpha]
 
 #define DSWEAK_SELF __weak typeof(self) weakSelf = self
 #define DSSTRONG_SELF __strong typeof(weakSelf) strongSelf = weakSelf
