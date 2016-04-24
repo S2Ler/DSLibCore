@@ -58,9 +58,6 @@ BOOL isIPhone4Screen(void);
 
 #define DSDynamicCast(object, _class) ((_class *) ([object isKindOfClass:[_class class]] ? object : nil))
 
-#define fequal(a,b) (fabs((a) - (b)) < FLT_EPSILON)
-#define fequalzero(a) (fabs(a) < FLT_EPSILON)
-
 static inline CGRect DSRectChange(CGRect initial, CGRect(^changeBlock)(CGRect)) {
   return changeBlock(initial);
 }

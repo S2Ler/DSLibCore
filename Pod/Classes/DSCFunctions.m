@@ -117,3 +117,24 @@ NSString *DSNSStringFromClass(Class class)
 BOOL isRunInExtension() {
   return [[[NSBundle mainBundle] bundlePath] hasSuffix:@".appex"];
 }
+
+bool fequal(float A, float B, float maxDiff)
+{
+  // Check if the numbers are really close -- needed
+  // when comparing numbers near zero.
+  float diff = fabs(A - B);
+  if (diff <= maxDiff)
+    return true;
+  
+  A = fabs(A);
+  B = fabs(B);
+  float largest = (B > A) ? B : A;
+  
+  if (diff <= largest * FLT_EPSILON)
+    return true;
+  return false;
+}
+
+bool fequalzero(float a){
+  return fequal(a, 0, 0.000001);
+}
