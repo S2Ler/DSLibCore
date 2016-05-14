@@ -1,7 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'DSLibCore' do
+target 'DSLibCoreTests' do
   pod "DSLibCore", :path => "../"
 end
-
