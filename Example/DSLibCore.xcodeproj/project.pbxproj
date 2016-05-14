@@ -10,6 +10,7 @@
 		0959DB091CCA3B18006C5070 /* DSLibCoreTets.m in Sources */ = {isa = PBXBuildFile; fileRef = 0959DB081CCA3B18006C5070 /* DSLibCoreTets.m */; };
 		098744321CE7063100829781 /* CStringFunctionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 098744311CE7063100829781 /* CStringFunctionsTests.m */; };
 		098744341CE707DF00829781 /* DSCFunctionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 098744331CE707DF00829781 /* DSCFunctionsTests.m */; };
+		0987443A1CE70CB200829781 /* DSDataDetectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 098744391CE70CB200829781 /* DSDataDetectorTests.m */; };
 		2B072610CBE70130BDE702DF /* Pods_DSLibCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60EFD9119C7B9B831FAD9E44 /* Pods_DSLibCore.framework */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -21,11 +22,12 @@
 		0959DB081CCA3B18006C5070 /* DSLibCoreTets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLibCoreTets.m; sourceTree = "<group>"; };
 		098744311CE7063100829781 /* CStringFunctionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CStringFunctionsTests.m; sourceTree = "<group>"; };
 		098744331CE707DF00829781 /* DSCFunctionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSCFunctionsTests.m; sourceTree = "<group>"; };
+		098744391CE70CB200829781 /* DSDataDetectorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDataDetectorTests.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* DSLibCore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSLibCore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F5AE195388D20070C39A /* DSLibCore.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSLibCore.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* DSLibCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSLibCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -68,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				6003F58A195388D20070C39A /* DSLibCore.app */,
-				6003F5AE195388D20070C39A /* DSLibCore.xctest */,
+				6003F5AE195388D20070C39A /* DSLibCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +94,7 @@
 				0959DB081CCA3B18006C5070 /* DSLibCoreTets.m */,
 				098744311CE7063100829781 /* CStringFunctionsTests.m */,
 				098744331CE707DF00829781 /* DSCFunctionsTests.m */,
+				098744391CE70CB200829781 /* DSDataDetectorTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -128,9 +131,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F5AD195388D20070C39A /* DSLibCore */ = {
+		6003F5AD195388D20070C39A /* DSLibCoreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "DSLibCore" */;
+			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "DSLibCoreTests" */;
 			buildPhases = (
 				F0A32E2B6C69D268905089CF /* 📦 Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
@@ -143,9 +146,9 @@
 			);
 			dependencies = (
 			);
-			name = DSLibCore;
+			name = DSLibCoreTests;
 			productName = DSLibCoreTests;
-			productReference = 6003F5AE195388D20070C39A /* DSLibCore.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* DSLibCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -155,6 +158,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DS;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Alexander Belyavskiy";
 				TargetAttributes = {
@@ -176,7 +180,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F5AD195388D20070C39A /* DSLibCore */,
+				6003F5AD195388D20070C39A /* DSLibCoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -247,6 +251,7 @@
 			files = (
 				098744321CE7063100829781 /* CStringFunctionsTests.m in Sources */,
 				0959DB091CCA3B18006C5070 /* DSLibCoreTets.m in Sources */,
+				0987443A1CE70CB200829781 /* DSDataDetectorTests.m in Sources */,
 				098744341CE707DF00829781 /* DSCFunctionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +350,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6769DAEE6464B28803F0419 /* Pods-DSLibCore.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
@@ -354,7 +360,9 @@
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -364,11 +372,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D39D46A67E95545E5E43ECFA /* Pods-DSLibCore.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -387,7 +397,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "DSLibCore" */ = {
+		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "DSLibCoreTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,
