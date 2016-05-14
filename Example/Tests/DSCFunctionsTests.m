@@ -31,4 +31,13 @@
   XCTAssertEqual(DSNumberOfParamsInSelector(@selector(exampleSelectorWithThreeParams:param2:param3:)), 3);
 }
 
+- (void)exampleSelectorWithOneParams:(id)param {
+  //
+}
+
+- (void)exampleSelectorWithThreeParams:(id)param param2:(id)param2 param3:(id)param3 {
+  //
+}
+
+
 @end
