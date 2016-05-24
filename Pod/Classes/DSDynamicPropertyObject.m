@@ -160,6 +160,7 @@
       NSDateFormatter *dateFormatter = [[self dateFormatters] objectForKey:customDateFormat];
       if (!dateFormatter) {
         dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         [dateFormatter setDateFormat:customDateFormat];
         [[self dateFormatters] setObject:dateFormatter forKey:customDateFormat];
       }
