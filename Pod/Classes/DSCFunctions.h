@@ -35,5 +35,8 @@ NSString *__nonnull DSNSStringFromClass(Class __nonnull class);
 
 BOOL isRunInExtension();
 
-bool fequal(float a, float b, float maxDiff);
-bool fequalzero(float a);
+bool fequalf(float a, float b, float maxDiff);
+bool fequalzerof(float a);
+bool fequal(double a, double b, double maxDiff);
+bool fequalzero(double a);
+

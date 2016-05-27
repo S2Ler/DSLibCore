@@ -118,11 +118,31 @@ BOOL isRunInExtension() {
   return [[[NSBundle mainBundle] bundlePath] hasSuffix:@".appex"];
 }
 
-bool fequal(float A, float B, float maxDiff)
+bool fequalf(float A, float B, float maxDiff)
 {
   // Check if the numbers are really close -- needed
   // when comparing numbers near zero.
-  float diff = fabs(A - B);
+  float diff = fabsf(A - B);
+  if (diff <= maxDiff)
+    return true;
+  
+  A = fabsf(A);
+  B = fabsf(B);
+  float largest = (B > A) ? B : A;
+  
+  if (diff <= largest * FLT_EPSILON)
+    return true;
+  return false;
+}
+
+bool fequalzerof(float a){
+  return fequalf(a, 0, 0.000001);
+}
+
+bool fequal(double A, double B, double maxDiff) {
+  // Check if the numbers are really close -- needed
+  // when comparing numbers near zero.
+  double diff = fabs(A - B);
   if (diff <= maxDiff)
     return true;
   
@@ -135,6 +155,7 @@ bool fequal(float A, float B, float maxDiff)
   return false;
 }
 
-bool fequalzero(float a){
+bool fequalzero(double a) {
   return fequal(a, 0, 0.000001);
 }
+
