@@ -24,13 +24,13 @@ static NSDictionary *DSConfiguration_sharedConfiguration = nil;
 {
   NSArray *components = [theConfigurationKey componentsSeparatedByString:@":"];
   if (theScheme == nil && [components count] == 1) {
-    return [components objectAtIndex:0];
+    return components[0];
   }
   else if (theScheme == nil && [components count] == 2) {
     return nil;
   }
   else if ([components count] == 2) {
-    return [components objectAtIndex:0];
+    return components[0];
   }
   return nil;
 }
@@ -49,7 +49,7 @@ static NSDictionary *DSConfiguration_sharedConfiguration = nil;
   [theConfiguration
     enumerateKeysAndObjectsUsingBlock:^(NSString *configKey, id obj, BOOL *stop)
     {
-      if ([configKey containsString:schemePostfix] == YES || schemePostfix == nil) {
+      if ([configKey containsString:schemePostfix] || schemePostfix == nil) {
         NSString *key = [self keyForConfigurationKey:configKey scheme:schemePostfix];
         if (key != nil) {
           NSString *keySelectorString = [NSString stringWithFormat:@"set%@:", [key stringWithFirstCharUpperCase]];

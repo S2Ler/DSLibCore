@@ -21,7 +21,7 @@ static inline BOOL iOS9orHigher(void) {
 
 BOOL isIPhone4Screen(void);
 
-#define isScreenSizeHigherThanIPhone4 ([[UIScreen mainScreen] preferredMode].size.height > 480 * [[UIScreen mainScreen] scale] && !isIPadIdiom())
+BOOL isScreenSizeHigherThanIPhone4(void);
 
 #define ASSERT_MAIN_THREAD NSAssert([[NSThread currentThread] isEqual:[NSThread mainThread]], @"%@:%@ should run main thread.", NSStringFromClass([self class]), NSStringFromSelector(_cmd))
 

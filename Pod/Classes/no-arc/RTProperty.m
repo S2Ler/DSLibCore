@@ -20,7 +20,7 @@
         NSArray *attrPairs = [[NSString stringWithUTF8String: property_getAttributes(property)] componentsSeparatedByString: @","];
         _attrs = [[NSMutableDictionary alloc] initWithCapacity:[attrPairs count]];
         for(NSString *attrPair in attrPairs)
-            [_attrs setObject:[attrPair substringFromIndex:1] forKey:[attrPair substringToIndex:1]];
+            _attrs[[attrPair substringToIndex:1]] = [attrPair substringFromIndex:1];
     }
     return self;
 }
@@ -30,7 +30,7 @@
     if((self = [self init]))
     {
         _name = [name copy];
-        _attrs = [attributes copy];
+        _attrs = [attributes mutableCopy];
     }
     return self;
 }
@@ -81,14 +81,14 @@
     for (NSString *attrKey in _attrs)
     {
         if (![attrKey isEqualToString:RTPropertyTypeEncodingAttribute] && ![attrKey isEqualToString:RTPropertyBackingIVarNameAttribute])
-            [filteredAttributes addObject:[_attrs objectForKey:attrKey]];
+            [filteredAttributes addObject:_attrs[attrKey]];
     }
     return [filteredAttributes componentsJoinedByString: @","];
 }
 
 - (BOOL)hasAttribute: (NSString *)code
 {
-    return [_attrs objectForKey:code] != nil;
+    return _attrs[code] != nil;
 }
 
 - (BOOL)isReadOnly
@@ -125,7 +125,7 @@
 
 - (NSString *)contentOfAttribute: (NSString *)code
 {
-    return [_attrs objectForKey:code];
+    return _attrs[code];
 }
 
 - (SEL)customGetter
