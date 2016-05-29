@@ -5,7 +5,7 @@
   static int respondsToScale = -1;
   if (respondsToScale == -1) {
     // Avoid calling this anymore than we need to.
-    respondsToScale = !!([[UIScreen mainScreen] respondsToSelector:@selector(scale)]);
+    respondsToScale = ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]);
   }
   
   if (respondsToScale) {

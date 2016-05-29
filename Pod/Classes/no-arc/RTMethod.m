@@ -1,9 +1,7 @@
 
 #import "RTMethod.h"
-
-#import <stdarg.h>
-
 #import "MARTNSObject.h"
+#import <objc/runtime.h>
 
 
 @interface _RTObjCMethod : RTMethod

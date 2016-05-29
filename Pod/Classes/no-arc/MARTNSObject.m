@@ -1,8 +1,6 @@
 
 #import "MARTNSObject.h"
 
-@import ObjectiveC;
-
 #import "RTProtocol.h"
 #import "RTIvar.h"
 #import "RTProperty.h"

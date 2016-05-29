@@ -1,6 +1,6 @@
 
 @import Foundation;
-@import ObjectiveC;
+#import <objc/runtime.h>
 
 @interface RTProtocol : NSObject
 {
