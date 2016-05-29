@@ -24,7 +24,7 @@ NSString *DSApplicationDocumentDirectoryPath(void)
   assert([documentsDirectories count] > 0);
 
   if ([documentsDirectories count] > 0) {
-    return [documentsDirectories objectAtIndex:0];
+    return documentsDirectories[0];
   }
   else {
     return nil;
@@ -64,8 +64,8 @@ DSFileSize getFreeDiskSpace(NSError **errorRef)
                                                                                      error:errorRef];
 
   if (dictionary) {
-    NSNumber *fileSystemSizeInBytes = [dictionary objectForKey:NSFileSystemSize];
-    NSNumber *freeFileSystemSizeInBytes = [dictionary objectForKey:NSFileSystemFreeSize];
+    NSNumber *fileSystemSizeInBytes = dictionary[NSFileSystemSize];
+    NSNumber *freeFileSystemSizeInBytes = dictionary[NSFileSystemFreeSize];
     totalSpace = [fileSystemSizeInBytes longLongValue];
     totalFreeSpace = [freeFileSystemSizeInBytes longLongValue];
     NSLog(@"Memory Capacity of %llu MiB with %llu MiB Free memory available.", ((totalSpace / 1024ll) / 1024ll), ((totalFreeSpace / 1024ll) / 1024ll));
@@ -122,12 +122,12 @@ bool fequal(float A, float B, float maxDiff)
 {
   // Check if the numbers are really close -- needed
   // when comparing numbers near zero.
-  float diff = fabs(A - B);
+  float diff = fabsf(A - B);
   if (diff <= maxDiff)
     return true;
   
-  A = fabs(A);
-  B = fabs(B);
+  A = fabsf(A);
+  B = fabsf(B);
   float largest = (B > A) ? B : A;
   
   if (diff <= largest * FLT_EPSILON)
