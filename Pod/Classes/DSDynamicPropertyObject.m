@@ -18,7 +18,7 @@
 @end
 
 @implementation DSDynamicPropertyObject
-- (id)initWithContainer:(id)container
+- (id)initWithContainer:(NSObject<NSCoding> *)container
 {
   self = [super init];
   if (self) {
@@ -200,9 +200,9 @@
     [invocation setTarget:self];
     [invocation setSelector:selector];
     [self forwardInvocation:invocation];
-    __autoreleasing id value;
+    __unsafe_unretained id value;
     [invocation getReturnValue:&value];
-    if (value) {
+    if (value != nil) {
       values[[property name]] = value;
     }
   }
@@ -224,4 +224,14 @@
 {
   return [[self container] ds_jsonValueForKeyPath:keyPath];
 }
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+  [aCoder encodeObject:[self container] forKey:DSKEYPATH(container)];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
+  self = [self initWithContainer:[aDecoder decodeObjectForKey:DSKEYPATH(container)]];
+  return self;
+}
+
 @end

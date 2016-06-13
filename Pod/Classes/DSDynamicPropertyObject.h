@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DSDynamicPropertyObject : NSObject
-@property (nonatomic, strong, nonnull) id container;
+@interface DSDynamicPropertyObject : NSObject<NSCoding>
+@property (nonatomic, strong, nonnull) NSObject<NSCoding> *container;
 
-- (instancetype)initWithContainer:(nonnull id)container;
+- (instancetype)initWithContainer:(nonnull NSObject<NSCoding> *)container;
 
 - (nullable id)containerValueForKeyPath:(nonnull NSString *)keyPath;
 
