@@ -58,6 +58,8 @@ BOOL isScreenSizeHigherThanIPhone4(void);
 
 #define DSDynamicCast(object, _class) ((_class *) ([object isKindOfClass:[_class class]] ? object : nil))
 
+#define WARN_UNSED __attribute__((warn_unused_result));
+
 static inline CGRect DSRectChange(CGRect initial, CGRect(^changeBlock)(CGRect)) {
   return changeBlock(initial);
 }
