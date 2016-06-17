@@ -49,6 +49,9 @@
   else if ([type hasPrefix:@"I"]) {
     [anInvocation setSelector:@selector(handleUnsignedIntegerWithName:)];
   }
+  else if ([type hasPrefix:@"i"]) {
+    [anInvocation setSelector:@selector(handleIntegerWithName:)];
+  }
   else if ([type hasPrefix:@"Q"]) {
     [anInvocation setSelector:@selector(handleUnsignedLongLongWithName:)];
   }
@@ -102,6 +105,11 @@
 {
   NSNumber *number = [self numberForGetterName:getterName];
   return [number unsignedIntegerValue];
+}
+
+- (NSInteger)handleIntegerWithName:(NSString *)getterName {
+  NSNumber *number = [self numberForGetterName:getterName];
+  return [number integerValue];
 }
 
 - (unsigned long long)handleUnsignedLongLongWithName:(NSString *)getterName
