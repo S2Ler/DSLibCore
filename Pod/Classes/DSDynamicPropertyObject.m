@@ -18,6 +18,33 @@
 @end
 
 @implementation DSDynamicPropertyObject
+
+- (NSDictionary<NSString *,NSString *> *)typeToGetterMap {
+  static NSDictionary<NSString *,NSString *> *map = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    map = @{
+            @"@\"NSNumber\"": DSKEYPATH(handleStringToNumberGetterWithName:),
+            @"@\"NSDate\"": DSKEYPATH(handleStringToDateGetterWithName:),
+            @"@\"NSString\"": DSKEYPATH(handleObjectGetterWithName:),
+            @"@\"NSDictionary\"": DSKEYPATH(handleObjectGetterWithName:),
+            @"@\"NSArray\"": DSKEYPATH(handleObjectGetterWithName:),
+            @"I": DSKEYPATH(handleUnsignedIntegerWithName:),
+            @"i": DSKEYPATH(handleIntegerWithName:),
+            @"Q": DSKEYPATH(handleUnsignedLongLongWithName:),
+            @"d": DSKEYPATH(handleDoubleWithName:),
+            @"q": DSKEYPATH(handleLongLongWithName:),
+            @"B": DSKEYPATH(handleBOOLWithName:),
+            @"c": DSKEYPATH(handleCharWithName:)
+            };
+  });
+  return map;
+}
+
+- (NSDictionary<NSString *,NSString *> *)customGetterNameToSelectorMap {
+  return nil;
+}
+
 - (id)initWithContainer:(NSObject<NSCoding> *)container
 {
   self = [super init];
@@ -36,35 +63,22 @@
   NSInteger lastParamIndex = 1;
   [anInvocation setArgument:&getterName atIndex:lastParamIndex + 1];
   
-  NSString *type = [self typeForPropertyWithName:getterName];
-  if ([type hasPrefix:@"@\"NSNumber\""]) {
-    [anInvocation setSelector:@selector(handleStringToNumberGetterWithName:)];
+  NSString *_Nullable customSelector = self.customGetterNameToSelectorMap[getterName];
+  
+  if (customSelector) {
+    [anInvocation setSelector:NSSelectorFromString(customSelector)];
   }
-  else if ([type hasPrefix:@"@\"NSDate\""]) {
-    [anInvocation setSelector:@selector(handleStringToDateGetterWithName:)];
+  else {    
+    NSString *type = [self typeForPropertyWithName:getterName];
+    NSString *_Nullable mapSelector = [self typeToGetterMap][type];
+    if (mapSelector != nil) {
+      [anInvocation setSelector:NSSelectorFromString(mapSelector)];
+    }
+    else if ([type hasPrefix:@"@"]) {
+      [anInvocation setSelector:@selector(handleObjectGetterWithName:)];
+    }
+    UNHANDLED_IF;
   }
-  else if ([type hasPrefix:@"@"]) {
-    [anInvocation setSelector:@selector(handleObjectGetterWithName:)];
-  }
-  else if ([type hasPrefix:@"I"]) {
-    [anInvocation setSelector:@selector(handleUnsignedIntegerWithName:)];
-  }
-  else if ([type hasPrefix:@"i"]) {
-    [anInvocation setSelector:@selector(handleIntegerWithName:)];
-  }
-  else if ([type hasPrefix:@"Q"]) {
-    [anInvocation setSelector:@selector(handleUnsignedLongLongWithName:)];
-  }
-  else if ([type hasPrefix:@"d"]) {
-    [anInvocation setSelector:@selector(handleDoubleWithName:)];
-  }
-  else if ([type hasPrefix:@"q"]) {
-    [anInvocation setSelector:@selector(handleLongLongWithName:)];
-  }
-  else if ([type hasPrefix:@"B"] || [type hasPrefix:@"c"]) {
-    [anInvocation setSelector:@selector(handleBOOLWithName:)];
-  }
-  UNHANDLED_IF;
   
   [anInvocation invokeWithTarget:self];
 }
@@ -128,6 +142,11 @@
 {
   NSNumber *number = [self numberForGetterName:getterName];
   return [number longLongValue];
+}
+
+- (char)handleCharWithName:(NSString *)getterName {
+  NSNumber *number = [self numberForGetterName:getterName];
+  return [number charValue];
 }
 
 - (BOOL)handleBOOLWithName:(NSString *)getterName

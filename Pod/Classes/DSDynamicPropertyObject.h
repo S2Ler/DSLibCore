@@ -11,7 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DSDynamicPropertyObject : NSObject<NSCoding>
+
 @property (nonatomic, strong, nonnull) NSObject<NSCoding> *container;
+
+/// Maps getter name to custom selector of this subclass which can transform container value to getter type
+@property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, NSString*> *customGetterNameToSelectorMap;
 
 - (instancetype)initWithContainer:(nonnull NSObject<NSCoding> *)container;
 
@@ -31,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nonnull NSString *)keypathForGetter:(nonnull NSString *)getter;
 
 - (nullable NSString *)dateFormatForGetter:(nonnull NSString *)getter;
+
 @end
 
 NS_ASSUME_NONNULL_END
