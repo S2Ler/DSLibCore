@@ -29,13 +29,15 @@
             @"@\"NSString\"": DSKEYPATH(handleObjectGetterWithName:),
             @"@\"NSDictionary\"": DSKEYPATH(handleObjectGetterWithName:),
             @"@\"NSArray\"": DSKEYPATH(handleObjectGetterWithName:),
+            @"@\"NSURL\"": DSKEYPATH(handleObjectToNSURLGetterWithName:),
             @"I": DSKEYPATH(handleUnsignedIntegerWithName:),
             @"i": DSKEYPATH(handleIntegerWithName:),
             @"Q": DSKEYPATH(handleUnsignedLongLongWithName:),
             @"d": DSKEYPATH(handleDoubleWithName:),
             @"q": DSKEYPATH(handleLongLongWithName:),
             @"B": DSKEYPATH(handleBOOLWithName:),
-            @"c": DSKEYPATH(handleCharWithName:)
+            @"c": DSKEYPATH(handleCharWithName:),
+            @"s": DSKEYPATH(handleShortWithName:)
             };
   });
   return map;
@@ -149,6 +151,11 @@
   return [number charValue];
 }
 
+- (short)handleShortWithName:(NSString *)getterName {
+  NSNumber *number = [self numberForGetterName:getterName];
+  return [number shortValue];
+}
+
 - (BOOL)handleBOOLWithName:(NSString *)getterName
 {
   NSNumber *number = [self numberForGetterName:getterName];
@@ -199,6 +206,19 @@
   }
 
   return date;
+}
+
+- (NSURL *)handleObjectToNSURLGetterWithName:(NSString *)getterName {
+  id urlObject = [[self container] ds_jsonValueForKeyPath:[self keypathForGetter:getterName]];
+  if ([urlObject isKindOfClass:[NSURL class]]) {
+    return urlObject;
+  }
+  else if ([urlObject isKindOfClass:[NSString class]]) {
+    return [NSURL URLWithString:urlObject];
+  }
+  else {
+    return nil;
+  }
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
