@@ -11,3 +11,7 @@ public enum Result<T, E> {
   case Err(E)
 }
 
+public enum Either<T, V> {
+  case First(T)
+  case Second(V)
+}
