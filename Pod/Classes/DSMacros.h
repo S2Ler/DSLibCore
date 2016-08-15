@@ -20,6 +20,8 @@ static inline BOOL iOS9orHigher(void) {
 }
 
 BOOL isIPhone4Screen(void);
+/** Returns true if screen width == 320 */
+BOOL isSmallWidthScreen(void);
 
 BOOL isScreenSizeHigherThanIPhone4(void);
 
