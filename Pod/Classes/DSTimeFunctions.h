@@ -8,5 +8,6 @@
 
 
 NSTimeInterval DSTimeIntervalWithWeeks(NSInteger weeks);
+NSTimeInterval DSTimeIntervalWithDays(NSInteger days);
 NSTimeInterval DSTimeIntervalWithHours(NSInteger hours);
 NSTimeInterval DSTimeIntervalWithMinutes(NSInteger minutes);
