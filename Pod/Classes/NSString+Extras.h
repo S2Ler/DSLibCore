@@ -73,9 +73,6 @@ extern NSString * const EMAIL_REGEX;
 + (NSString *)sizePrettyStringWithBytes:(DSFileSize)theSizeInBytes;
 + (NSString *)sizePrettyString1000NominationWithBytes:(DSFileSize)theSizeInBytes;
 
-/** Apply NSLocalizedString to the target string */
-- (NSString *)localized;
-
 /** Return image from the app Bundle with name of the target string taking into account 4' screen size.
  * Files naming convention:
  * Non-Retina: image.[ext]
