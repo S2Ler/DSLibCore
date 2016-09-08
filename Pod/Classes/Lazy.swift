@@ -15,7 +15,7 @@ public final class LazyObject<ObjectType, OwnerType> {
     return self.setupBlock(self.owner())
   }()
   
-  public init(owner: () -> (OwnerType), setupBlock: (OwnerType) -> (ObjectType)) {
+  public init(owner: @escaping () -> (OwnerType), setupBlock: @escaping (OwnerType) -> (ObjectType)) {
     self.owner = owner
     self.setupBlock = setupBlock
   }
@@ -23,7 +23,8 @@ public final class LazyObject<ObjectType, OwnerType> {
   public var object: ObjectType {
     return _object
   }
-  
+
+  @discardableResult
   public func load() -> ObjectType {
     return _object
   }

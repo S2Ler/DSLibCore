@@ -6,14 +6,14 @@
 //
 //
 
-public func each<T>(array: Array<T>, block: (T) -> Void) {
+public func each<T>(_ array: Array<T>, block: (T) -> Void) {
   for obj in array {
     block(obj)
   }
 }
 
-public extension SequenceType {
-  public func firstThat<QueryType>(@noescape predicate: (Generator.Element) -> QueryType?) -> QueryType? {
+public extension Sequence {
+  public func firstThat<QueryType>(_ predicate: (Iterator.Element) -> QueryType?) -> QueryType? {
     for element in self {
       if let t = predicate(element) {
         return t
@@ -23,7 +23,7 @@ public extension SequenceType {
     return nil
   }
   
-  public func firstThat(@noescape predicate: (Generator.Element) -> Bool) -> Generator.Element? {
+  public func firstThat(_ predicate: (Iterator.Element) -> Bool) -> Iterator.Element? {
     for element in self {
       if predicate(element) {
         return element
@@ -33,8 +33,8 @@ public extension SequenceType {
     return nil
   }
   
-  public func lastThat(@noescape predicate: (Generator.Element) -> Bool) -> Generator.Element? {
-    var last: Generator.Element? = nil
+  public func lastThat(_ predicate: (Iterator.Element) -> Bool) -> Iterator.Element? {
+    var last: Iterator.Element? = nil
     for element in self {
       if predicate(element) {
         last = element
@@ -44,11 +44,11 @@ public extension SequenceType {
     return last
   }
   
-  public func apply<T>(function: (Generator.Element) -> T) -> [T] {
+  public func apply<T>(_ function: (Iterator.Element) -> T) -> [T] {
     return map { function($0) }
   }
   
-  public func apply(function: (Generator.Element) -> Void) {
+  public func apply(_ function: (Iterator.Element) -> Void) {
     forEach { function($0) }
   }
 

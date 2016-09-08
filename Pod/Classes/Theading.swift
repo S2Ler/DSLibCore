@@ -8,22 +8,25 @@
 
 import Foundation
 
-
-
 /// Submit `closure` to main dispatch queue after `delayInSeconds`
-public func delay(delayInSeconds: Double, closure: () -> Void) {
-  delay(delayInSeconds, queue: dispatch_get_main_queue(), closure: closure)
+public func delay(_ interval: TimeInterval, closure: @escaping () -> Void) {
+  delay(interval, queue: DispatchQueue.main, closure: closure)
 }
 
 /// Submit `closure` to `queue` after `delayInSeconds`
-public func delay(delayInSeconds:Double, queue: dispatch_queue_t, closure:() -> Void) {
-  let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-  dispatch_after(time, queue, closure)
+public func delay(_ interval: TimeInterval, queue: DispatchQueue, closure: @escaping () -> Void) {
+  let time = DispatchTime.now() + Double(Int64(interval * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+  queue.asyncAfter(deadline: time, execute: closure)
 }
 
-public extension dispatch_queue_t {
+public extension DispatchQueue {
   /// Submit `closure` to this queue after `delayInSeconds`
-  public func delay(delayInSeconds: Double, closure: () -> Void) {
-    DSLibCore.delay(delayInSeconds, queue: self, closure: closure)
+  public func delay(_ interval: TimeInterval, closure: @escaping () -> Void) {
+    DSLibCore.delay(interval, queue: self, closure: closure)
+  }
+
+  public func delay(_ dispatchTimeInterval: DispatchTimeInterval, closure: @escaping () -> Void) {
+    let time = DispatchTime.now() + dispatchTimeInterval
+    asyncAfter(deadline: time, execute: closure)
   }
 }

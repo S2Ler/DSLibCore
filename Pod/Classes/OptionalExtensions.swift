@@ -11,18 +11,18 @@ import Foundation
 public extension Optional {
   public func andThen<U>(f: (Wrapped) throws -> U?) rethrows -> U? {
     switch self {
-    case .Some(let x):
+    case .some(let x):
       return try f(x)
-    case .None:
+    case .none:
       return nil
     }
   }
   
   public func apply(f: (Wrapped) throws -> ()) rethrows {
     switch self {
-    case .Some(let x):
+    case .some(let x):
       try f(x)
-    case .None:
+    case .none:
       break
     }
   }

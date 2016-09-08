@@ -16,6 +16,6 @@ public extension CGSize {
 
 public extension NSNumber {
   public var unwrap: NSNumber {
-    return self ?? NSNumber(integer: 0)
+    return self ?? NSNumber(value: 0 as Int)
   }
 }

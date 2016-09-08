@@ -9,27 +9,27 @@
 import Foundation
 
 public protocol From {
-  static func from<T>(value: T) -> Self
+  static func from<T>(_ value: T) -> Self
 }
 
-public protocol Error: From, ErrorType {
+public protocol RustError: From, Swift.Error {
   
 }
 
-public func tryResult<T, E2: Error>(this: () throws -> (T)) -> Result<T, E2> {
+public func tryResult<T, E2: RustError>(_ this: () throws -> (T)) -> Result<T, E2> {
   do {
     let value = try this()
-    return .Ok(value)
+    return .ok(value)
   } catch {
-    return .Err(E2.from(error))
+    return .err(E2.from(error))
   }
 }
 
-public func tryResult<T, E1: Error, E2: Error>(@autoclosure this: () -> (Result<T, E1>)) -> Result<T, E2>{
+public func tryResult<T, E1: RustError, E2: RustError>(_ this: @autoclosure () -> (Result<T, E1>)) -> Result<T, E2>{
   switch this() {
-  case .Ok(let value):
-    return .Ok(value)
-  case .Err(let error):
-    return .Err(E2.from(error))
+  case .ok(let value):
+    return .ok(value)
+  case .err(let error):
+    return .err(E2.from(error))
   }
 }

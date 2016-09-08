@@ -8,6 +8,6 @@
 
 import Foundation
 
-public func with<T>(object: T, @noescape `do`: T -> T) -> T {
+public func with<T>(_ object: T, do: (T) -> T) -> T {
   return `do`(object)
 }

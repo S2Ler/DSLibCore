@@ -7,11 +7,11 @@
 //
 
 public enum Result<T, E> {
-  case Ok(T)
-  case Err(E)
+  case ok(T)
+  case err(E)
 }
 
 public enum Either<T, V> {
-  case First(T)
-  case Second(V)
+  case first(T)
+  case second(V)
 }
