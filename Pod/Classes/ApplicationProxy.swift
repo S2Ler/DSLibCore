@@ -15,7 +15,7 @@ import Foundation
   var keyWindow: UIWindow? { get }
   func beginIgnoringInteractionEvents()
   func endIgnoringInteractionEvents()
-  func isIgnoringInteractionEvents() -> Bool
+  var isIgnoringInteractionEvents: Bool { get }
   func beginBackgroundTaskWithExpirationHandler(_ handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
   func beginBackgroundTaskWithName(_ taskName: String?, expirationHandler handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
   func endBackgroundTask(_ identifier: UIBackgroundTaskIdentifier)
