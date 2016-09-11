@@ -69,3 +69,6 @@ static inline CGRect DSRectChange(CGRect initial, CGRect(^changeBlock)(CGRect)) 
 static inline UIEdgeInsets DSEdgeChange(UIEdgeInsets initial, UIEdgeInsets(^changeBlock)(UIEdgeInsets)) {
   return changeBlock(initial);
 }
+
+#define var __auto_type
+#define let const __auto_type
