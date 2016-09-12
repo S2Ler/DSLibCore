@@ -59,6 +59,7 @@ BOOL isScreenSizeHigherThanIPhone4(void);
 #define DSKEYPATH(PATH) NSStringFromSelector(@selector(PATH))
 
 #define DSDynamicCast(object, _class) ((_class *) ([object isKindOfClass:[_class class]] ? object : nil))
+#define DSDynamicCastP(object, _class) ((id<_class>) ([object conformsToProtocol:@protocol(_class)] ? object : nil))
 
 #define WARN_UNSED __attribute__((warn_unused_result));
 
