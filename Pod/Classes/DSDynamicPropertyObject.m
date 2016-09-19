@@ -47,7 +47,7 @@
   return nil;
 }
 
-- (id)initWithContainer:(NSObject<NSCoding> *)container
+- (instancetype)initWithContainer:(NSObject<NSCoding> *)container
 {
   self = [super init];
   if (self) {
