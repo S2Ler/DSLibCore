@@ -8,9 +8,6 @@
 @class RTProperty;
 
 @interface RTUnregisteredClass : NSObject
-{
-    Class _class;
-}
 
 + (id)unregisteredClassWithName: (NSString *)name withSuperclass: (Class)superclass;
 + (id)unregisteredClassWithName: (NSString *)name;

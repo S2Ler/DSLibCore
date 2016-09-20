@@ -8,6 +8,9 @@
 
 
 @implementation RTUnregisteredClass
+{
+    Class _class;
+}
 
 + (id)unregisteredClassWithName: (NSString *)name withSuperclass: (Class)superclass
 {
