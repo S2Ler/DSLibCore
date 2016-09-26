@@ -1,6 +1,6 @@
 
 @import Foundation;
-#import <DSLibCore/DSConstants.h>
+#import "DSConstants.h"
 #pragma mark - macros
 
 

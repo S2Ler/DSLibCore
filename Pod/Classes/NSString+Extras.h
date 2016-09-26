@@ -1,7 +1,7 @@
 
 @import Foundation;
 
-#import <DSLibCore/DSConstants.h>
+#import "DSConstants.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

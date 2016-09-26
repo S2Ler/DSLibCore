@@ -1,5 +1,5 @@
 @import Foundation;
-#import <DSLibCore/DSCFunctions.h>
+#import "DSCFunctions.h"
 
 
 #define DS_SAVE_RELEASE(obj) [obj release]; obj = nil;

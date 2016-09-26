@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 JLT Source. No rights reserved.
 //
 
-#import <DSLibCore/JLTDelayOperation.h>
+#import "JLTDelayOperation.h"
 
 @interface JLTDelayOperation (JLTDelayOperationProtected)
 
