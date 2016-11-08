@@ -3,12 +3,12 @@
 
 @implementation NSString (Groupping)
 - (NSString *)stringGroupByFirstInitial {
-  NSString *temp = [self uppercaseString];
+  NSString *uppercased = [self uppercaseString];
   
-  if (!temp.length || temp.length == 1) {
-    return self;
+  if (uppercased.length <= 1) {
+    return uppercased;
   }
-  
-  return [temp substringToIndex:1];
+
+  return [uppercased substringToIndex:1];
 }
 @end
