@@ -22,6 +22,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable id)containerValueForKeyPath:(nonnull NSString *)keyPath;
 
 - (nonnull NSDictionary *)allValues;
+
+
+/**
+ Used only in default keypathForGetter implementation.
+ @see keypathForGetter:
+ */
+@property (nonatomic, strong, nullable) NSDictionary<NSString*, NSString*> *getterToKeypathMap;
+
+#pragma mark - Accessors
+- (NSInteger)handleIntegerWithName:(NSString *)getterName;
+- (NSUInteger)handleUnsignedIntegerWithName:(NSString *)getterName;
+- (NSNumber *)numberForGetterName:(NSString *)getterName;
+- (double)handleDoubleWithName:(NSString *)getterName;
+- (unsigned long long)handleUnsignedLongLongWithName:(NSString *)getterName;
+- (long long)handleLongLongWithName:(NSString *)getterName;
+- (char)handleCharWithName:(NSString *)getterName;
+- (short)handleShortWithName:(NSString *)getterName;
+- (BOOL)handleBOOLWithName:(NSString *)getterName;
+- (id)handleObjectGetterWithName:(NSString *)getterName;
+- (nullable NSNumber *)handleStringToNumberGetterWithName:(NSString *)getterName;
+- (nullable NSDate *)handleStringToDateGetterWithName:(NSString *)getterName;
+- (nullable NSURL *)handleObjectToNSURLGetterWithName:(NSString *)getterName;
+- (nullable NSString *)handleObjectToStringGetterWithName:(NSString *)getterName;
 @end
 
 @interface DSDynamicPropertyObject (Abstract)

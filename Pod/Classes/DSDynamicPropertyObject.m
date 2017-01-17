@@ -221,6 +221,19 @@
   }
 }
 
+- (nullable NSString *)handleObjectToStringGetterWithName:(NSString *)getterName {
+  id containerValue = [[self container] ds_jsonValueForKeyPath:[self keypathForGetter:getterName]];
+  if ([containerValue isKindOfClass:[NSString class]]) {
+    return containerValue;
+  } else if ([containerValue isKindOfClass:[NSNumber class]]) {
+    return [containerValue description];
+  } else if (containerValue != nil) {
+    return [containerValue description];
+  } else {
+    return nil;
+  }
+}
+
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
 {
   NSMethodSignature *signature = [super methodSignatureForSelector:selector];
@@ -264,7 +277,11 @@
 
 - (NSString *)keypathForGetter:(NSString *)getter
 {
-  return getter;
+  if (self.getterToKeypathMap != nil) {
+    return self.getterToKeypathMap[getter] ?: getter;
+  } else {
+    return getter;
+  }
 }
 
 - (id)containerValueForKeyPath:(NSString *)keyPath
