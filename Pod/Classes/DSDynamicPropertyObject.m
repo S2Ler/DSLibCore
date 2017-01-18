@@ -163,9 +163,9 @@
 }
 
 /** \param theSetter looks like: setParamName */
-- (id)handleObjectGetterWithName:(NSString *)getterName
+- (nullable NSObject<NSCoding>*)handleObjectGetterWithName:(NSString *)getterName
 {
-  NSString *value = [[self container] ds_jsonValueForKeyPath:[self keypathForGetter:getterName]];
+  id value = [[self container] ds_jsonValueForKeyPath:[self keypathForGetter:getterName]];
   return value;
 }
 
@@ -284,7 +284,7 @@
   }
 }
 
-- (id)containerValueForKeyPath:(NSString *)keyPath
+- (NSObject<NSCoding> *)containerValueForKeyPath:(NSString *)keyPath
 {
   return [[self container] ds_jsonValueForKeyPath:keyPath];
 }

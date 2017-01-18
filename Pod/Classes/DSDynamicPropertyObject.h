@@ -19,10 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithContainer:(nonnull NSObject<NSCoding> *)container;
 
-- (nullable id)containerValueForKeyPath:(nonnull NSString *)keyPath;
+- (nullable NSObject<NSCoding> *)containerValueForKeyPath:(nonnull NSString *)keyPath;
 
 - (nonnull NSDictionary *)allValues;
-
 
 /**
  Used only in default keypathForGetter implementation.
@@ -40,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (char)handleCharWithName:(NSString *)getterName;
 - (short)handleShortWithName:(NSString *)getterName;
 - (BOOL)handleBOOLWithName:(NSString *)getterName;
-- (id)handleObjectGetterWithName:(NSString *)getterName;
+- (nullable NSObject<NSCoding>*)handleObjectGetterWithName:(NSString *)getterName;
 - (nullable NSNumber *)handleStringToNumberGetterWithName:(NSString *)getterName;
 - (nullable NSDate *)handleStringToDateGetterWithName:(NSString *)getterName;
 - (nullable NSURL *)handleObjectToNSURLGetterWithName:(NSString *)getterName;
