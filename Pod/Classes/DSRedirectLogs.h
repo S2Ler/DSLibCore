@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^DSRedirectLogsHandler) (NSString *format, va_list args_list);
 
 @interface DSRedirectLogs : NSObject
-@property (nonatomic, copy, nullable) void (^customLogger)(NSString *_Nonnull format, va_list _Nonnull args_list);
+@property (nonatomic, copy, nullable) void (^customLogger)(NSString *format, va_list args_list);
 + (instancetype)sharedInstance;
 
 - (void)log:(NSString *)format args:(va_list)args;
